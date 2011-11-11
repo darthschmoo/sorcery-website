@@ -1,0 +1,134 @@
+/* colors
+
+=debugger()
+  background-color: red
+  
+=simple_center()
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+=center_known_size( $width, $height )
+  position: absolute
+  left: 50%
+  top: 50%
+  margin-left: -1 * $width / 2.0
+  margin-top: -1 * $height / 2.0
+  
+=center_known_size_vertically( $height )
+  position: absolute
+  top: 50%
+  margin-top: -1 * $height / 2.0
+
+=center_known_size_horizontally( $width )
+  position: absolute
+  left: 50%
+  margin-left: -1 * $width / 2.0
+
+=watermark($file, $position : bottom right)
+  background:
+    image: url($file)
+    repeat: no-repeat
+    position: $position
+
+
+=round_corners($amount : 1em)
+  -moz-border-radius : $amount
+  -webkit-border-radius : $amount
+  border-radius : $amount
+
+=round_top_left_corner($amount : 1em)
+  -moz-border-radius-topleft : $amount
+  -webkit-border-top-left-radius : $amount
+  border-top-left-radius : $amount
+
+=round_top_right_corner($amount : 1em)
+  -moz-border-radius-topright : $amount
+  -webkit-border-top-right-radius : $amount
+  border-top-right-radius : $amount
+
+=round_bottom_left_corner($amount : 1em)
+  -moz-border-radius-bottomleft : $amount
+  -webkit-border-bottom-left-radius : $amount
+  border-bottom-left-radius : $amount
+
+=round_bottom_right_corner($amount : 1em)
+  -moz-border-radius-bottomright: $amount
+  -webkit-border-bottom-right-radius: $amount
+  border-bottom-right-radius: $amount
+
+=shadow($color : #000)
+  -moz-box-shadow: 6px 6px 5px $color
+  -webkit-box-shadow: 6px 6px 5px $color
+
+=clearfix()
+  &:after
+    content: " "
+    display: block
+    clear: both
+    visibility: hidden
+    line-height: 0
+    height: 0
+    font-size: 0px
+
+  &
+    display: inline-block
+
+=hide_offside()
+  position: absolute
+  left: -5000px
+  width: 1px
+  height: 1px
+  
+  /* The next bits are inspired by 960
+   Use like so:
+   
+
+=grid_container( $rows : 4 )
+  +clearfix()
+  padding: 0
+
+=grid_element( $size : 4, $rows : 4, $gutter : 2% , $width : 100% )
+  width: ( $width / $rows * $size ) - $gutter
+  display: inline
+  float: left
+  margin-left: $gutter / 2
+  margin-right: $gutter / 2
+
+
+=highlight_middle_gradient( $color, $offset : $add_highlight )
+  /* fallthrough for browsers that don't support CSS3 gradients */
+  background:
+    color: $color + $offset / 2
+  +linear-gradient( color-stops($color 15%, $color + $offset, $color 80%) )
+  
+  
+/* strength goes from 0.0 (invisible) to 1.0 (overwhelming)
+=reflective_vertical_gradient( $color, $strength : 0.15 )
+  background:
+    color: $color
+  +linear-gradient( color_stops( rgba(255,255,255,$strength) 5%, rgba(128,128,128,$strength) 20%, rgba(224,224,224,$strength) 45%, rgba(32,32,32,$strength) 50%, rgba(128,128,128,$strength) 85%, rgba(255,255,255,$strength) 100% ) )
+
+/* Compass (or somebody in the chain) has issues with the above.  Rewriting with pure rgb color stops.  Looks worse somehow.  $strength is ignored. */
+=reflective_vertical_gradient2( $color, $strength : 0.15 )
+  background:
+    color: $color
+  +linear-gradient( color_stops( lighten($color, 3%) 5%, $color 20%, lighten($color, 5%) 48%, darken($color, 4%) 50%, $color 85% ) )
+  
+  
+  
+=styled_pane_heading( $color )
+  h1
+    +round_top_right_corner( 1em )
+    +round_top_left_corner( 1em )
+    color: white
+    +reflective_vertical_gradient($color, 0.2)
+    margin: 0px
+    padding: 0.2em
+    font-size: 1.0em
+
+
+
+=icon_slicer( $image, $size, $x : 0, $y : 0 )
+  background-image: url( $image )
+  background-position: ( -1 * $size * $x ) ( -1 * $size * $y )

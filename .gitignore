@@ -3,3 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
+Capfile
+config/deploy.example.rb
+config/deploy.rb
+lib/generators

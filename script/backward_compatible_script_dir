@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# this just invokes the 'rails' script different ways depending
+# on its filename.  That's whyfor all the symlinks.
+rails_script = File.join( File.dirname(__FILE__), "rails" )
+action = File.basename(__FILE__)
+args = [action].concat(ARGV)
+
+exec( rails_script, *args )

@@ -1,0 +1,58 @@
+Deployment
+
+1) install rvm on tux
+   a) install curl via apt-get
+   b) bash < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )  # from http://beginrescueend.com/rvm/install/
+   c) add /home/andersbr/.rvm/bin/rvm to path
+   d) rvm install 1.9.2
+   e) rvm use 1.9.2
+   
+2) Get tux upgraded to passenger
+   a) gem install passenger
+   b) [failed to install apache module, so]  sudo apt-get install libcurl4-openssl-dev
+   c) [retrying]  passenger-install-apache2-module
+   d) edit passenger.load (example):
+      LoadModule passenger_module /home/andersbr/.rvm/gems/ruby-1.9.2-p290/gems/passenger-3.0.9/ext/apache2/mod_passenger.so
+   
+   e) edit passenger.conf (example):
+      PassengerRoot /home/andersbr/.rvm/gems/ruby-1.9.2-p290/gems/passenger-3.0.9
+      PassengerRuby /home/andersbr/.rvm/wrappers/ruby-1.9.2-p290/ruby
+   
+   f) enable site (deployed to /var/www/sorcery/current:
+   
+      <VirtualHost 204.8.230.52:80>
+         ServerName www.bannedsorcery.com
+         DocumentRoot /var/www/sorcery/current/public    # <-- be sure to point to 'public'!
+         <Directory /var/www/sorcery/current/public>
+            AllowOverride all              # <-- relax Apache security settings
+            Options -MultiViews            # <-- MultiViews must be turned off
+         </Directory>
+      </VirtualHost>
+      
+    g) created /var/www/sorcery/current/public/index.html.  Still getting gedview site when I request bannedsorcery.com or www.bannedsorcery.com
+    h) Changed VirtualHost *:80 to specific ip 204.8...   Works now.
+    
+3) Make app cap-deployable
+   a) capify .  (creates Capfile and deploy recipe template)
+   b) push code out to GitHub
+   c) configure deploy recipe
+   d) make sure target /var/www/sorcery is bryce-writable.
+   e) cap deploy:setup  (which failed)
+   f) set use_sudo to false.  Works now.
+   g) cap deploy  (which failed)
+   h) added forwarded agent to ssh options
+   i) cap deploy worked
+   j) cap deploy:migrate  
+        failed:  no such file to load: bundler/setup
+        switched default ruby for my account to 1.9.2 (rvm use 1.9.2 --default)
+        still failed:  no such file to load -- bundler/setup
+        manually ran bundle/install in the release directory
+          gems installed
+        still failed
+          rake doesn't seem to be working. "Could not find javascript runtime."  WTF?
+          Ignoring that.
+          
+        mysql socket is in a different location.  Changing and resubmitting.
+        Getting closer
+        rake db:create RAILS_ENV=production
+        rake db:migrate RAILS_ENV=production

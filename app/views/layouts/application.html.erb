@@ -8,11 +8,13 @@
   </head>
 
   <body>
-    <%= render :partial => "/header" %>
-    <%= render :partial => "/sidebar" %>
+    <%= render :partial => "/layouts/application_header" %>
+    <%= render :partial => "/layouts/application_sidebar" %>
   
-    <%= yield %>
-
-    <%= render :partial => "/footer" %>
+    <div id="content">
+      <%= yield %>
+    </div>
+    
+    <%= render :partial => "/layouts/application_footer" %>
   </body>
 </html>

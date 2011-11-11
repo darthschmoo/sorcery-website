@@ -54,5 +54,16 @@ Deployment
           
         mysql socket is in a different location.  Changing and resubmitting.
         Getting closer
-        rake db:create RAILS_ENV=production
-        rake db:migrate RAILS_ENV=production
+        rake db:create RAILS_ENV=production   (manual)
+        rake db:migrate RAILS_ENV=production  (manual)
+        
+        Error:  Could not find archive-tar-minitar-0.5.2 in any of the sources
+          re-running bundle install  (which did install archive-tar-minitar)
+        Worked!
+        
+    k) Calling up bannedsorcery.com
+       Still getting error, related to my own stupidity.  Not documented to decrease shame.
+       
+        
+        
+        

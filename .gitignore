@@ -8,4 +8,6 @@ config/deploy.example.rb
 config/deploy.rb
 lib/generators
 public/assets/*
+config/app.yml
+config/database.yml
 

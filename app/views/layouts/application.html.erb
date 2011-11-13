@@ -12,6 +12,12 @@
     <%= render :partial => "/layouts/application_sidebar" %>
   
     <div id="content">
+      <div id="notices">
+        <p class="error"><%= flash[:error] %></p>
+        <p class="warning"><%= flash[:warning] %></p>
+        <p class="notice"><%= flash[:notice] %></p>
+      </div>
+      
       <%= yield %>
     </div>
     

@@ -1,0 +1,36 @@
+@import _library
+
+div#header
+  img
+    +simple_center()
+    
+body 
+  +grid_container(15)
+  width: 100%
+    
+div#header, div#footer
+  +grid_element( 15, 15, 0% )
+  background-color: #002211
+  
+div#sidebar
+  +grid_element( 3, 15, 0% )
+  background-color: #001122
+  
+div#content
+  +grid_element( 11, 15, 0% )
+  background-color: #fff
+  color: #000
+  padding: 2%  
+  
+  h1
+    text-align: center
+    
+div#notices
+  p.error
+    color: red
+  
+  p.notice
+    color: green
+    
+  p.warning
+    color: brown    

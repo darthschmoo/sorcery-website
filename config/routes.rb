@@ -1,9 +1,14 @@
 Sorcery::Application.routes.draw do
   resources :pages
 
+
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
+  match 'login/:passkey' => 'simple_login#login'
+  match 'logout' => 'simple_login#logout'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

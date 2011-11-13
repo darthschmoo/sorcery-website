@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :must_be_logged_in, :only => %w(new edit create update destroy)
+  
   # GET /pages
   # GET /pages.json
   def index

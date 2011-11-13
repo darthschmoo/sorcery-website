@@ -1,24 +1,30 @@
 @import _library
 
-div#header
-  img
-    +simple_center()
-    
 body 
   +grid_container(15)
   width: 100%
+  background-image: url("/assets/starfield.png")
+  background-color: black
+  
+div#header
+  img
+    +simple_center()
+    margin-top: 1em
+    margin-bottom: 1em
+    
     
 div#header, div#footer
   +grid_element( 15, 15, 0% )
-  background-color: #002211
-  
+  background-color: black
+  background-color: rgba(0,0,0,0.6)  
 div#sidebar
   +grid_element( 3, 15, 0% )
   background-color: #001122
-  
+  background-color: rgba(0,128,255,0.2)
 div#content
   +grid_element( 11, 15, 0% )
   background-color: #fff
+  background-color: rgba(255,255,255,0.9)
   color: #000
   padding: 2%  
   

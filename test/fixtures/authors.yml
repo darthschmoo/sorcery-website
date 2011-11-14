@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyText
+  short_bio: MyText
+  long_bio: MyText
+
+two:
+  name: MyText
+  short_bio: MyText
+  long_bio: MyText

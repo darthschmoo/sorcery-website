@@ -1,7 +1,10 @@
 Sorcery::Application.routes.draw do
+  resources :authors
   resources :stories
-
   resources :pages
+  
+  # hard-coding to the first author for now.
+  match 'author' => 'authors#show', :id => 1
 
 
 

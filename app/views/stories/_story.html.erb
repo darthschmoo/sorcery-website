@@ -1,0 +1,16 @@
+<div id="story_<%= story.id %>" class="story_index_item">
+  <p class="title"><%= story.title %></p>
+  <p class="teaser"><%= story.teaser %></p>
+  
+  <% if logged_in? -%>  
+    <div class="actions">
+      <%= link_to 'Show', story %> | 
+      <%= link_to 'Edit', edit_story_path(story) %> |
+      <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
+    </div>
+  <% else -%>
+    <div class="actions single">
+      <%= link_to "Read it", story %>
+    </div>
+  <% end -%>    
+</div>

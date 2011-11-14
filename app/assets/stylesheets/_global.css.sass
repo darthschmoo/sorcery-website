@@ -6,6 +6,11 @@ body
   background-image: url("/assets/starfield.png")
   background-color: black
   
+  
+a:hover
+  background-color: #669966
+  
+  
 div#header
   img
     +simple_center()
@@ -42,12 +47,38 @@ div#notices
     color: brown    
     
     
-div#footer
+div#footer, div#sidebar
   text-align: center
   color: gray
+  
   a
+    color: gray
     text-decoration: none
     padding: 0.4em
   a:hover
+    color: white
     background-color: gray
     background-color: rgba(255,255,255,0.3)
+    
+    
+div#sidebar
+  a
+    font-size: 2em
+    display: block
+    width: 90%
+    +simple_center()
+    
+
+div.actions
+  text-align: center
+  a
+    text-decoration: none
+    
+div.actions.single
+  font-size: 2em
+  a
+    display: block
+    padding: 1em
+    width: 50%
+    +simple_center()
+    +round_corners()

@@ -27,11 +27,13 @@ module ActionViewExtensions
       
       def quick_check_box( description, object_name, method, options = {}, checked_value = "1", unchecked_value = "0" )
         explanation = options.delete(:explanation)
-        content_tag( :div, :class => "#{object_name}__#{method} for_check_box" ) do
+        rval = content_tag( :div, :class => "#{object_name}__#{method} for_check_box" ) do
           self.check_box(object_name, method, options, checked_value, unchecked_value ) + 
             content_tag( :p, description ) + 
             explanation_button( explanation )
         end
+        
+        rval.html_safe
       end
       
       def quick_collection_select( object_name, method, collection, value_method, text_method, options = {}, html_options = {} ) 
@@ -40,12 +42,13 @@ module ActionViewExtensions
       end
       
       def quick_form_element_common( content, object_name, method, options = {} )
-        content_tag( :div, :class => "#{object_name}__#{method}" ) do
+        rval = content_tag( :div, :class => "#{object_name}__#{method}" ) do
           explanation = options.delete(:explanation)
           label_text = options.delete(:label) || "#{method}"
           label_options = options.delete(:label_options) || {}
-          label( object_name, method, "#{label_text.humanize}:", label_options ) + explanation_button( explanation ) + content
-        end        
+          rval = (label( object_name, method, "#{label_text.humanize}: #{explanation_button( explanation ) }".html_safe, label_options ) + content).html_safe
+        end  
+        rval.html_safe    
       end
       
       def explanation_button( text )
@@ -53,12 +56,14 @@ module ActionViewExtensions
         
         id = "explanation_#{rand(100000000)}"
         
-        content_tag( :a, image_tag("question_mark.png"), :class => "explanation_button", :href => "#", 
-        :onmouseover => "$('#{id}').appear( { duration : 0.1 } )", 
-        :onmouseout => "$('#{id}').fade({ duration : 0.3 })" ) +
-        content_tag( :div, :class => "explanation_container" ) do
+        button = content_tag( :a, "(?)", :class => "explanation_button", :href => "#", 
+                              :onmouseover => "$('#{id}').appear( { duration : 0.1 } )", 
+                              :onmouseout => "$('#{id}').fade({ duration : 0.3 })" )
+
+        container = content_tag( :div, :class => "explanation_container" ) do
           content_tag( :p, text, :id => id, :class => "explanation", :style => "display: none" )
         end
+        (button + container).html_safe
       end
       
       def quick_calendar_select( description, object_name, method, options = {} )

@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_filter :must_be_logged_in, :only => %w(new edit create update destroy)
+  
   # GET /stories
   # GET /stories.json
   def index

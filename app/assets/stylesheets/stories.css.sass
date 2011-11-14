@@ -1,0 +1,23 @@
+@import _library
+
+div.story_index
+  width: 100%
+  +grid_container(2)
+  
+  div.story_index_item
+    +grid_element( 1, 2, 3% )
+    background-color: #eeffdd
+    +round_corners()
+    
+    p.title
+      font-weight: bold
+      text-align: center
+      font-size: 1.2em
+      width: 90%
+      +simple_center()
+      
+    p.teaser
+      width: 90%
+      +simple_center()
+      font-style: italic
+      text-align: center

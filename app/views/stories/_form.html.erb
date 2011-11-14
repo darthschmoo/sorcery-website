@@ -1,4 +1,4 @@
-<%= form_for(@story) do |f| %>
+<%= quick_form_for(@story) do |f| %>
   <% if @story.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
@@ -11,22 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </div>
+  <%= f.quick_text_field :title %>
+  <%= f.quick_text_field :teaser, :explanation => "Try to hook the readers like the floppy little fishies they are." %>
+  
+  <%= f.quick_text_area :body %>
+  <%= f.quick_check_box "Publish?", :published, :explanation => "Should the story be visible to readers?" %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

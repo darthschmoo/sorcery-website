@@ -11,12 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109021329) do
+ActiveRecord::Schema.define(:version => 20111114000036) do
+
+  create_table "authors", :force => true do |t|
+    t.text     "name"
+    t.text     "short_bio"
+    t.text     "long_bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "slug"
     t.string   "title"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.string   "teaser"
+    t.text     "body"
+    t.string   "status"
+    t.boolean  "published",    :default => false
+    t.text     "author_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

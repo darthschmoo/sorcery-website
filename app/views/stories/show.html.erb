@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @story.title %></h1>
 
-<p>
-  <b>Title:</b>
-  <%= @story.title %>
-</p>
+<div class="story" id="story_<%= @story.id %>">
+  <% unless @story.published -%>
+    <p class="unpublished">This story is not visible to the ignorant masses.</p>
+  <% end -%>
 
-<p>
-  <b>Body:</b>
-  <%= @story.body %>
-</p>
+  <div class="body">
+    <%= markdown @story.body %>
+  </div>
 
-<p>
-  <b>Status:</b>
-  <%= @story.status %>
-</p>
+  <% unless @story.status.blank? -%>
+    <p>
+      <strong>Status:</strong> <%= @story.status %>
+    </p>
+  <% end -%>
+</div>
+  
 
-<p>
-  <b>Published:</b>
-  <%= @story.published %>
-</p>
-
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<div class="actions">
+  <% logged_in? do -%>
+    <%= link_to 'Edit', edit_story_path(@story) %> |
+  <% end -%>
+  <%= link_to 'Back', stories_path %>
+</div>

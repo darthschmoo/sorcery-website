@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_filter :must_be_logged_in, :except => %w(show)
+  
   # GET /authors
   # GET /authors.json
   def index

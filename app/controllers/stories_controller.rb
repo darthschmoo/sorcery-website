@@ -1,10 +1,11 @@
 class StoriesController < ApplicationController
+  before_filter :get_story, :only => %w(show edit update destroy)
   before_filter :must_be_logged_in, :only => %w(new edit create update destroy)
-  
+  before_filter :hide_unpublished_stories_from_ignorant_masses, :only =>  %w(show)
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = logged_in? ? Story.all : Story.published
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,6 +81,24 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to stories_url }
       format.json { head :ok }
+    end
+  end
+  
+  protected
+  def get_story
+    @story = Story.find_by_id( params[:id] )
+    if @story.nil?
+      flash[:error] = "Could not find story with id #{params[:id]}"
+      redirect_to :action => :index
+      return false
+    end
+  end
+  
+  def hide_unpublished_stories_from_ignorant_masses
+    unless @story.published? || logged_in?
+      flash[:error] = "This story is not public."
+      redirect_to :action => :index
+      return false
     end
   end
 end

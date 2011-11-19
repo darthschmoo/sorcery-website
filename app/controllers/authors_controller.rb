@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_filter :must_be_logged_in, :except => %w(show)
-  
+  before_filter :get_author, :only => %w(show edit update destroy)
   # GET /authors
   # GET /authors.json
   def index
@@ -15,8 +15,6 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
-    @author = Author.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @author }
@@ -36,7 +34,6 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
-    @author = Author.find(params[:id])
   end
 
   # POST /authors
@@ -58,8 +55,6 @@ class AuthorsController < ApplicationController
   # PUT /authors/1
   # PUT /authors/1.json
   def update
-    @author = Author.find(params[:id])
-
     respond_to do |format|
       if @author.update_attributes(params[:author])
         format.html { redirect_to @author, notice: 'Author was successfully updated.' }
@@ -74,12 +69,17 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
-    @author = Author.find(params[:id])
     @author.destroy
 
     respond_to do |format|
       format.html { redirect_to authors_url }
       format.json { head :ok }
     end
+  end
+
+  protected
+  def get_author
+    @author = Author.find_by_id( params[:id] )
+    abandon_action( "No such person as author #{params[:id]}.") if @author.nil?
   end
 end

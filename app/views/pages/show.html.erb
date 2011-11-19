@@ -2,5 +2,8 @@
 
 <%= markdown @page.content %>
 
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<% logged_in? do -%>  
+  <div class="actions">
+    <%= link_to 'Edit', edit_page_path(@page) %> 
+  </div>
+<% end -%>

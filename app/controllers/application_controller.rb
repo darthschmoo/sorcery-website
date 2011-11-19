@@ -16,5 +16,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def abandon_action( msg = "You can't do that.", go = { :action => :index } )
+    flash[:error] = msg
+    redirect_to go
+  end
+  
   helper_method :logged_in?
 end

@@ -4,6 +4,11 @@
     <title>Sorcery</title>
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag params[:controller] %>
+    <%= stylesheet_link_tag Rails.env %>
+    <% logged_in? do -%>
+      <%= stylesheet_link_tag "logged_in" %>
+    <% end -%>
+    
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag params[:controller] %>
     <%= csrf_meta_tags %>

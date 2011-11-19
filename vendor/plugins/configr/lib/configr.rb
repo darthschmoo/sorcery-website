@@ -1,6 +1,8 @@
 # Configr
 
 module Configr
+  attr_reader :data
+  
   class Configr
     def initialize( data )
       @data = {}
@@ -14,7 +16,8 @@ module Configr
     def apply_hash( hash )
       for k, v in hash
         if v.is_a?(Hash)
-          create_method( k, Configr.new( v ) )
+          puts v.inspect
+          create_method( k, Configr.new(v) )
         else
           create_method( k, v )
         end
@@ -23,11 +26,6 @@ module Configr
     
     def create_method( method_name, value )
       method_name = method_name.to_sym
-      
-      if self.respond_to?(method_name)
-        puts "method #{method_name} already exists"
-        return
-      end
       
       @data[method_name] = value
       

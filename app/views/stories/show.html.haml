@@ -1,0 +1,18 @@
+%h1 #{@story.title}
+%div.story{ class: "story", id: "story_#{@story.id}"}
+
+- unless @story.published
+  %p.unpublished This story is not visible to the ignorant masses.
+
+%div.body
+  = markdown @story.body
+  
+- unless @story.status.blank?
+  %p *Status:* #{@story.status}
+  
+%div.actions
+  - logged_in? do
+    = link_to 'Edit', edit_story_path(@story)
+    |
+  
+  = link_to 'Back', stories_path

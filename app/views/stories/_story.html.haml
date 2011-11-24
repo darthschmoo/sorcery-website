@@ -1,0 +1,18 @@
+- classes = ["story_index_item"]
+- classes << "unpublished" unless story.published
+
+%div{ id: "story_#{story.id}", class: classes }
+  %p.title #{story.title}
+  %p.teaser #{story.teaser} (#{ friendly_word_count(story) } words)
+
+  - if logged_in?
+    %div.actions
+      = link_to 'Show', story
+      | 
+      = link_to 'Edit', edit_story_path(story)
+      |
+      = link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete
+    
+  - else  
+    %div.actions.single
+      = link_to "Read it", story

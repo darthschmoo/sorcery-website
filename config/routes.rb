@@ -1,5 +1,16 @@
 Sorcery::Application.routes.draw do
-  resources :authors
+  resources :authors do
+    resources :social_media_links do
+      collection do
+        get 'index'
+      end
+      
+      member do
+        post 'update'
+      end
+    end
+  end
+  
   resources :stories
   resources :pages
   

@@ -42,3 +42,4 @@ end
 
 gem 'bluecloth'
 gem 'liquid'
+gem 'haml'

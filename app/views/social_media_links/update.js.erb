@@ -1,0 +1,7 @@
+<% if @social_media_link.errors.none? -%>
+  icon = "<%= escape_javascript render( :partial => "social_media_link", :object => @social_media_link )   %>";
+  $("#edit_social_media_link_<%= @social_media_link.id %>").before(icon)
+  $("#edit_social_media_link_<%= @social_media_link.id %>").remove()
+<% else -%>
+  alert("failed")
+<% end -%>

@@ -1,0 +1,10 @@
+= quick_form_for(@story) do |f|
+  = error_messages(@story)
+  
+  = f.quick_text_field :title
+  = f.quick_text_field :teaser, :explanation => "Try to hook the readers like the floppy little fishies they are."
+  = f.quick_text_area :body
+  = f.quick_check_box "Publish?", :published, :explanation => "Should the story be visible to readers?"
+  
+  %div.actions
+    = f.submit

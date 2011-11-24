@@ -23,6 +23,14 @@ module Configr
         end
       end
     end
+
+    def []( key )
+      @data[key]
+    end
+    
+    def []=( key, val )
+      apply_hash( { key => val } )
+    end
     
     def create_method( method_name, value )
       method_name = method_name.to_sym

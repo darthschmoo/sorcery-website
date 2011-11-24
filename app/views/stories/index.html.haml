@@ -1,0 +1,8 @@
+%h1 Short Stories
+
+- logged_in? do
+  %div.actions.single
+    = link_to 'New Story', new_story_path
+
+%div.story_index
+  = render @stories

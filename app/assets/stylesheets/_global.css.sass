@@ -1,7 +1,6 @@
 @import _library
 
-body 
-  
+body
   +grid_container(15)
   width: 100%
   background-image: url("/assets/starfield.png")
@@ -68,6 +67,15 @@ div#sidebar
     display: block
     width: 90%
     +simple_center()
+    
+
+div#social_media_links
+  a
+    display: inline
+    opacity: 0.4
+  a:hover
+    background-color: transparent
+    opacity: 1.0
     
 
 div.actions

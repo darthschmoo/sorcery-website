@@ -1,0 +1,13 @@
+- @author ||= Author.primary
+
+- if @author && @author.social_media_links.length > 0 
+  %div#social_media_links
+    = render @author.social_media_links
+  
+  - logged_in? do
+    %div.actions.single
+      = link_to "links", author_social_media_links_path( @author )
+    
+- else
+  - logged_in? do
+    %p.todo *TODO:* begin setup procedure for author profile or links

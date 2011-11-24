@@ -1,0 +1,10 @@
+%h1 Your links
+
+%div.social_media_links
+  - for link in @author.social_media_links
+    = quick_form_for link, :url => author_social_media_link_path(@author, link), 
+                           :remote => true, 
+                           :disable_with => "Updating..." do |f|
+                           
+      = render :partial => "form", :object => link, :locals => { :builder => f }
+      = f.submit "Update"

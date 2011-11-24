@@ -16,7 +16,6 @@ module Configr
     def apply_hash( hash )
       for k, v in hash
         if v.is_a?(Hash)
-          puts v.inspect
           create_method( k, Configr.new(v) )
         else
           create_method( k, v )
@@ -30,6 +29,10 @@ module Configr
     
     def []=( key, val )
       apply_hash( { key => val } )
+    end
+    
+    def keys
+      @data.keys
     end
     
     def create_method( method_name, value )

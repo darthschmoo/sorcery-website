@@ -12,4 +12,8 @@ module ApplicationHelper
     
     Sorcery.config.social_media.sources[ link.source.to_sym ][sz]
   end
+  
+  def social_media_source_to_name( src )
+    Sorcery.config.social_media.sources[ src ].name
+  end
 end

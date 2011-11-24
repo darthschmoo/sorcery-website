@@ -4,10 +4,6 @@ Sorcery::Application.routes.draw do
       collection do
         get 'index'
       end
-      
-      member do
-        post 'update'
-      end
     end
   end
   

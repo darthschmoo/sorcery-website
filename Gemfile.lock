@@ -151,6 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   bluecloth
+  bundler
   capistrano (>= 2.9.0)
   coffee-rails (~> 3.1.1)
   compass (~> 0.12.alpha.0)

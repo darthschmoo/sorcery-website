@@ -14,6 +14,7 @@ module ApplicationHelper
   end
   
   def social_media_source_to_name( src )
+    src = src.source.to_sym if src.is_a?(SocialMediaLink)
     Sorcery.config.social_media.sources[ src ].name
   end
 end

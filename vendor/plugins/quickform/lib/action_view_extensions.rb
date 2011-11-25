@@ -1,6 +1,14 @@
 module ActionViewExtensions
   module Helpers
     module FormHelper
+      # creates a unique identifier that can be included as part of an HTML
+      # element's id.
+      def self.next_uid
+        @current_uid ||= 0
+        @current_uid = 0 if @current_uid > 2000000000
+        @current_uid += 1
+      end
+      
       def quick_form_for( record, options = {}, &block )
         options[:html] ||= {}
         if options[:html][:class].blank?
@@ -21,7 +29,7 @@ module ActionViewExtensions
       end
       
       def quick_text_area( object_name, method, options = {} )
-        options.reverse_merge!( { :rows => 5, :cols => 30 }) # default size
+        options.reverse_merge!( { :rows => 30, :cols => 60 }) # default size
         quick_form_element_common( self.text_area( object_name, method, options ), object_name, method, options )
       end
       
@@ -54,11 +62,11 @@ module ActionViewExtensions
       def explanation_button( text )
         return "" if text.blank?
         
-        id = "explanation_#{rand(100000000)}"
+        id = "explanation_#{FormHelper.next_uid}"
         
         button = content_tag( :a, "(?)", :class => "explanation_button", :href => "#", 
-                              :onmouseover => "$('#{id}').appear( { duration : 0.1 } )", 
-                              :onmouseout => "$('#{id}').fade({ duration : 0.3 })" )
+                              :onmouseover => "$('##{id}').fadeIn( 0.2 )", 
+                              :onmouseout => "$('##{id}').fadeOut( 0.4 )" )
 
         container = content_tag( :div, :class => "explanation_container" ) do
           content_tag( :p, text, :id => id, :class => "explanation", :style => "display: none" )

@@ -3,3 +3,8 @@
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
+
+for k, v in Sorcery.config.story.formats
+  Mime::Type.register v.mime, k
+end
+  

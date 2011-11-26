@@ -83,15 +83,18 @@ div.actions
   text-align: center
   a
     text-decoration: none
-    
-div.actions.single
-  font-size: 2em
-  a
+
+  a.primary
+    font-size: 2em
     display: block
     padding: 1em
     width: 50%
     +simple_center()
     +round_corners()
+    
+div.actions.single
+  border: 3px solid red
+  
     
 .todo
   display: none

@@ -35,6 +35,12 @@ module Configr
       @data.keys
     end
     
+    def each( &block )
+      @data.each do |k,v|
+        yield k, v if block_given?
+      end
+    end
+    
     def create_method( method_name, value )
       method_name = method_name.to_sym
       

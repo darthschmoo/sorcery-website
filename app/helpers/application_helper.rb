@@ -17,4 +17,14 @@ module ApplicationHelper
     src = src.source.to_sym if src.is_a?(SocialMediaLink)
     Sorcery.config.social_media.sources[ src ].name
   end
+  
+  def last_updated( record )
+    "<div class=\"time last_updated\">Last updated: #{ record.updated_at }</div>".html_safe
+  end
+  
+  def markdown( text = "" )
+    BlueCloth.new( text ).to_html.html_safe
+  end
 end
+
+ApplicationHelper.extend(ApplicationHelper)

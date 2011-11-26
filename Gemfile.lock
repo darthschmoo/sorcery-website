@@ -53,6 +53,9 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    eeepub (0.8.0)
+      builder
+      rubyzip
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -121,6 +124,7 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
+    rubyzip (0.9.4)
     sass (3.1.10)
     sass-rails (3.1.4)
       actionpack (~> 3.1.0)
@@ -155,6 +159,7 @@ DEPENDENCIES
   capistrano (>= 2.9.0)
   coffee-rails (~> 3.1.1)
   compass (~> 0.12.alpha.0)
+  eeepub
   haml
   jquery-rails
   liquid

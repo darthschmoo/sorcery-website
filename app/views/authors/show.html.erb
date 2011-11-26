@@ -1,8 +1,8 @@
 <h1>About <%= @author.name %></h1>
 
 <% logged_in? do -%>
-  <div class="actions single">
-    <%= link_to 'Edit', edit_author_path(@author) %>
+  <div class="actions">
+    <%= link_to 'Edit', edit_author_path(@author), :class => "primary" %>
   </div>
 <% end -%>
 

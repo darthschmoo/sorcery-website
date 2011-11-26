@@ -5,10 +5,10 @@
     = render @author.social_media_links
   
     - logged_in? do
-      %div.actions.single
-        = link_to "Edit social links", author_social_media_links_path( @author )
+      %div.actions
+        = link_to "Edit social links", author_social_media_links_path( @author ), :class => "primary"
     
 - else
   - logged_in? do
-    %div.actions.single
-      = link_to "Set up social links", author_social_media_links_path( @author )
+    %div.actions
+      = link_to "Set up social links", author_social_media_links_path( @author ), :class => "primary"

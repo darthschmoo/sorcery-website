@@ -1,9 +1,0 @@
-<h1><%= h @page.title %></h1>
-
-<%= markdown @page.content %>
-
-<% logged_in? do -%>  
-  <div class="actions">
-    <%= link_to 'Edit', edit_page_path(@page) %> 
-  </div>
-<% end -%>

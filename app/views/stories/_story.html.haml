@@ -5,14 +5,20 @@
   %p.title #{story.title}
   %p.teaser #{story.teaser} (#{ friendly_word_count(story) } words)
 
-  - if logged_in?
-    %div.actions
-      = link_to 'Show', story
+
+  %div.actions
+    - if logged_in?
+      = link_to 'Read', story
       | 
       = link_to 'Edit', edit_story_path(story)
       |
       = link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete
+
     
-  - else  
-    %div.actions.single
-      = link_to "Read it", story
+    - else
+      = link_to "Read it", story, :class => "primary"
+
+    %br/
+    = link_to "pdf", :action => :show, :id => story, :format => "pdf"
+    |
+    = link_to "epub", :action => :show, :id => story, :format => "epub"

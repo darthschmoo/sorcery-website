@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :must_be_logged_in, :only => %w(new edit create update destroy)
+  before_filter :must_be_logged_in, :except => %w(show)
   
   # GET /pages
   # GET /pages.json

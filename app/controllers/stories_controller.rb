@@ -157,7 +157,9 @@ class StoriesController < ApplicationController
           publisher   "bannedsorcery.org"
           date        story.updated_at.strftime("%Y-%m-%d")
           identifier  ident, scheme: "URI"
-          files [f.path]
+          files [f.path, 
+                 File.join( Rails.root, "app", "assets", "stylesheets", "epub.css")
+                ]
         end
         
         epub.save( filename )

@@ -1,9 +1,18 @@
 !!! 5
 %html
   %head
+    <!-- Generated at #{Time.now} -->
     %title #{story_complete_simple_html.title}
+    <link href="epub.css" media="screen" rel="stylesheet" type="text/css" />
+  
+  
 
-    %body
-      %h1 #{story_complete_simple_html.title}
+  %body
+    %h1 #{story_complete_simple_html.title}
+    
+    %p.author by #{story_complete_simple_html.author}
 
-      = markdown( story_complete_simple_html.body )
+    = markdown( story_complete_simple_html.body )
+
+    %p.copyright_notice [#{Sorcery.config.story.copyright_notice.html_safe}]
+

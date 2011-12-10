@@ -2,3 +2,12 @@
 
 h1, h2, h3, h4, h5, h6{ text-align: center }
 
+p.author, p.copyright_notice{ text-align: center; font-size: 0.7; font-style: italic }
+
+hr {
+	width: 138px;
+	height: 30px;
+	border: 0px solid transparent;
+	background-image: url(hr_swirl.png);
+	
+}

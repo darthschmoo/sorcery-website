@@ -1,11 +1,51 @@
 @import _library
 
+/* Only one story per row */
+@media only screen and (min-width: 320px) and (max-width: 480px)
+  div.story_index
+    div.story_index_item
+      width: 95%
+      +simple_center()
+
+/* two stories per row */
+@media only screen and (min-width: 481px) and (max-width: 920px)
+  div.story_index
+    +grid_container(2)
+  
+    div.story_index_item:nth-child(2n+1)
+      clear: both
+
+    div.story_index_item
+      +grid_element( 1, 2, 3% )
+  
+
+/* three stories per row */
+@media only screen and (min-width: 921px) and (max-width: 1400px)
+  div.story_index
+    +grid_container(3)
+  
+    div.story_index_item:nth-child(3n+1)
+      clear: both
+
+    div.story_index_item
+      +grid_element( 1, 3, 3% )
+
+/* four stories per row */
+@media only screen and (min-width: 1401px)
+  div.story_index
+    +grid_container(4)
+
+    div.story_index_item:nth-child(4n+1)
+      clear: both
+
+    div.story_index_item
+      +grid_element( 1, 4, 3% )
+
+
+
 div.story_index
   width: 100%
-  +grid_container(2)
-  
   div.story_index_item
-    +grid_element( 1, 2, 3% )
     background-color: #eeffdd
     +round_corners()
     margin-top: 0.5em

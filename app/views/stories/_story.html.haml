@@ -19,6 +19,6 @@
       = link_to "Read it", story, :class => "primary"
 
     %br/
-    = link_to "pdf", story_path( story, format: "pdf" )
+    = link_to "pdf", story.url_for( "pdf" )
     |
-    = link_to "epub", story_path( story, format: "epub" )
+    = link_to "epub", story.url_for( "epub" )

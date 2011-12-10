@@ -64,7 +64,7 @@ class Story < ActiveRecord::Base
   
   def generate_pdf_file
     tempfile do |t|
-      t.write `htmldoc --no-title --no-toc  #{filename_and_path(:html)}`  # for debugging purposes
+      t.write `htmldoc --no-title --no-toc  #{filename_and_absolute_path(:html)}`  # for debugging purposes
       t.flush
       
       puts t.read

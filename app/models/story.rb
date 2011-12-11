@@ -96,21 +96,17 @@ class Story < ActiveRecord::Base
   end
   
   def delete_file_cache
-    puts "deleting cache for #{self.id}"
     for format in SUPPORTED_FORMATS
       delete_story_file( format )
     end
-    puts "done deleting -----------------------------"
     true
   end
   
   def generate_file_cache
-    puts "generating cache for #{self.id}"
     generate_html_file    # all other formats use this as a starting point
     generate_pdf_file if SUPPORTED_FORMATS.include?( "pdf" )
     generate_mobi_file if SUPPORTED_FORMATS.include?( "mobi" )
     generate_epub_file if SUPPORTED_FORMATS.include?( "epub" )
-    puts "done ------------------------------------------------"
   end
   
   def delete_story_file( format )

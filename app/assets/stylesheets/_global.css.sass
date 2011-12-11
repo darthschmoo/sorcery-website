@@ -2,15 +2,11 @@
 
 body
   +grid_container(15)
-  width: 100%
+  width: 99.5%
+  +simple_center()
   background-image: url("/assets/starfield.png")
   background-color: black
-  
-  
-a:hover
-  background-color: #669966
-  
-  
+    
 div#header
   img
     +simple_center()
@@ -82,10 +78,13 @@ div#social_media_links
 div.actions
   text-align: center
   a
+    color: black
     text-decoration: none
     padding: 0.3em
     +round_corners()
-
+    /* background-color: #33bb33
+    background-color: rgba( 128, 255, 128, 0.6 )
+    
   a.primary
     font-size: 2em
     display: block
@@ -94,7 +93,14 @@ div.actions
     +simple_center()
     +round_corners()
     
-  
+  a:hover
+    /* background-color: #008000
+    background-color: rgba( 128, 196, 128, 1.0 )
+    
+  a:visited
+    /* background-color: #408040
+    background-color: rgba( 128, 128, 128, 1.0 )
+    
     
 .todo
   display: none

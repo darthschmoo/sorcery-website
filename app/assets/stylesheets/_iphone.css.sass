@@ -1,0 +1,42 @@
+/* Small screens need some love too */
+@media only screen and (max-width: 640px)
+  body
+    width: 100%
+    font-size: 44px
+
+    p, ol, ul, td
+      font-size: 23px
+      line-height: 36px
+
+
+  div#header
+    img
+      width: 320px
+
+  div#sidebar
+    width: 240px
+    position: fixed
+    top: 30px
+    left: -210px
+    background-color: rgba(64,64,128,0.7)
+    &:hover    
+      left: 0px   
+      background-color: rgba(0,0,32,0.9)
+      
+    p, ol, ul, td
+      font-size: 16px
+      line-height: 20px
+  
+  div#content
+    width: 90%
+    margin-left: 9%
+    
+  div.actions
+    a
+      padding: 0.3em
+      font-size: 1.3em
+
+    a.primary
+      font-size: 1.6em
+      
+    margin-bottom: 0.5em

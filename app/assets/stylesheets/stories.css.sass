@@ -1,46 +1,5 @@
 @import _library
 
-/* Only one story per row */
-@media only screen and (min-width: 320px) and (max-width: 480px)
-  div.story_index
-    div.story_index_item
-      width: 95%
-      +simple_center()
-
-/* two stories per row */
-@media only screen and (min-width: 481px) and (max-width: 920px)
-  div.story_index
-    +grid_container(2)
-  
-    div.story_index_item:nth-child(2n+1)
-      clear: both
-
-    div.story_index_item
-      +grid_element( 1, 2, 3% )
-  
-
-/* three stories per row */
-@media only screen and (min-width: 921px) and (max-width: 1400px)
-  div.story_index
-    +grid_container(3)
-  
-    div.story_index_item:nth-child(3n+1)
-      clear: both
-
-    div.story_index_item
-      +grid_element( 1, 3, 3% )
-
-/* four stories per row */
-@media only screen and (min-width: 1401px)
-  div.story_index
-    +grid_container(4)
-
-    div.story_index_item:nth-child(4n+1)
-      clear: both
-
-    div.story_index_item
-      +grid_element( 1, 4, 3% )
-
 
 
 div.story_index
@@ -51,32 +10,76 @@ div.story_index
     margin-top: 0.5em
     margin-bottom: 0.5em
     
-    p.title
-      font-weight: bold
+    h2.title
       text-align: center
-      font-size: 1.2em
-      width: 90%
-      +simple_center()
+      font-size: 1.7em
+      width: 100%
+      padding-top: 0.6em
+      padding-bottom: 0px
+      margin-bottom: 0px
       
     p.teaser
-      width: 90%
-      +simple_center()
+      width: 100%
       font-style: italic
       text-align: center
+      margin-top: 0px
+      padding-top: 0px
       
     &.unpublished
       background-color: #ffdddd
       +watermark( image-url('lock_shadow.png'))
       
 div.story
-  div.body
-    > *
-  
-      font-size: 1.2em
-      line-height: 1.5em
   hr
     width: 118px
     height: 44px
     background:
       image: url("/assets/constellation.png")
     border: 0px solid transparent
+
+/************************* SCREEN-SIZE SPECIFIC DIRECTIVES ****************************/
+/* Only one story per row */
+@media only screen and (max-width: 640px)
+  div.story_index
+    div.story_index_item
+      width: 95%
+      +simple_center()
+      p.teaser
+        font-size: 1em
+        margin: 0.2em
+
+/* two stories per row */
+@media only screen and (min-width: 641px) and (max-width: 900px)
+  div.story_index
+    +grid_container(2)
+  
+    div.story_index_item:nth-child(2n+1)
+      clear: both
+
+    div.story_index_item
+      +grid_element( 1, 2, 3% )
+      
+  
+
+/* three stories per row */
+@media only screen and (min-width: 901px) and (max-width: 1300px)
+  div.story_index
+    +grid_container(3)
+  
+    div.story_index_item:nth-child(3n+1)
+      clear: both
+
+    div.story_index_item
+      +grid_element( 1, 3, 3% )
+
+/* four stories per row */
+@media only screen and (min-width: 1301px)
+  div.story_index
+    +grid_container(4)
+
+    div.story_index_item:nth-child(4n+1)
+      clear: both
+
+    div.story_index_item
+      +grid_element( 1, 4, 3% )
+

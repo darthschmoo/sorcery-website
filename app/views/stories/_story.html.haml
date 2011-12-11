@@ -2,7 +2,7 @@
 - classes << "unpublished" unless story.published
 
 %div{ id: "story_#{story.id}", class: classes }
-  %p.title #{story.title}
+  %h2.title #{story.title}
   %p.teaser #{story.teaser} (#{ friendly_word_count(story) } words)
 
 

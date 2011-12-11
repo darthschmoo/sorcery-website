@@ -17,6 +17,8 @@
   
     = link_to 'Back', stories_path
     |
-    = link_to "pdf", story_path(@story, format: "pdf")
+    = link_to "pdf", @story.url_for("pdf")
     |
-    = link_to "ePub", story_path(@story, format: "epub")
+    = link_to "ePub", @story.url_for("epub")
+    |
+    = link_to "mobi", @story.url_for("mobi")

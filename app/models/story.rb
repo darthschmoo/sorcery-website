@@ -5,8 +5,8 @@ class Story < ActiveRecord::Base
   scope :unpublished, where( "published = FALSE")
   scope :recent, lambda { |num_days = 30| where("created_at > ?", num_days.days.ago ) }
   
-  before_save :delete_file_cache
-  before_save :generate_file_cache, :if => Proc.new{|story| story.published? }
+  after_save :delete_file_cache
+  after_save :generate_file_cache, :if => Proc.new{|story| story.published? }
   
   def self.supported_formats
     formats = []
@@ -21,9 +21,7 @@ class Story < ActiveRecord::Base
   end
   
   SUPPORTED_FORMATS = self.supported_formats
-  
-  puts SUPPORTED_FORMATS
-  
+    
   def word_count
     body ? body.length / 6 : 0
   end
@@ -65,17 +63,13 @@ class Story < ActiveRecord::Base
   # Highly recommend installing wkhtmltopdf (the static version for your server's architecture/OS)
   # http://code.google.com/p/wkhtmltopdf/
   def generate_pdf_file
-    if !`which wkhtmltopdf`.empty?
-      puts "using wkhtmltopdf"
-      cmd = `which wkhtmltopdf`.strip
+    if !(cmd = `which wkhtmltopdf`.strip).empty?
       `#{cmd} #{filename_and_absolute_path(:html)} #{filename_and_absolute_path(:pdf)}`
       $?.success?
     elsif !`which htmldoc`.empty?
       tempfile do |t|
         t.write `htmldoc --no-title --no-toc  #{filename_and_absolute_path(:html)}`  # for debugging purposes
         t.flush
-      
-        puts t.read
       
         `htmldoc -t pdf --fontspacing 1.2 --fontsize 17pt --no-title --no-toc -f #{filename_and_absolute_path(:pdf)} #{t.path}`
         $?.success?
@@ -87,10 +81,11 @@ class Story < ActiveRecord::Base
 
   
   def generate_mobi_file
-    cmd = `which ebook-convert`.strip
-    if !cmd.empty?
-      puts `#{cmd} #{filename_and_absolute_path(:epub)} #{filename_and_absolute_path(:mobi)}`
-      puts $?.success?
+    if !(cmd = `which ebook-convert`.strip).empty?
+      puts `#{cmd} #{filename_and_absolute_path(:epub)} #{filename_and_absolute_path(:mobi)} \
+        --extra-css #{File.join( Rails.root, "app", "assets", "stylesheets", "epub.css")} \
+        --remove-first-image`
+      puts $?
       return $?.success?
     else
       false
@@ -98,12 +93,12 @@ class Story < ActiveRecord::Base
   end
   
   def generate_epub_file
-    story = self
+    story = self            # self changes inside the loop
     epub = EeePub.make do
       title       story.title
       creator     "Bryce Anderson"           # TODO: should be story.author, but haven't implemented it yet
       publisher   "bannedsorcery.com"
-      date        story.updated_at.strftime("%Y-%m-%d")
+      date        (story.new_record? ? Time.now : story.updated_at).strftime("%Y-%m-%d")
       
       # canonical URL for this story
       identifier  BogusRequest().story_url(story), scheme: "URI"

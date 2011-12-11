@@ -62,19 +62,39 @@ class Story < ActiveRecord::Base
     end
   end
   
+  # Highly recommend installing wkhtmltopdf (the static version for your server's architecture/OS)
+  # http://code.google.com/p/wkhtmltopdf/
   def generate_pdf_file
-    tempfile do |t|
-      t.write `htmldoc --no-title --no-toc  #{filename_and_absolute_path(:html)}`  # for debugging purposes
-      t.flush
+    if !`which wkhtmltopdf`.empty?
+      puts "using wkhtmltopdf"
+      cmd = `which wkhtmltopdf`.strip
+      `#{cmd} #{filename_and_absolute_path(:html)} #{filename_and_absolute_path(:pdf)}`
+      $?.success?
+    elsif !`which htmldoc`.empty?
+      tempfile do |t|
+        t.write `htmldoc --no-title --no-toc  #{filename_and_absolute_path(:html)}`  # for debugging purposes
+        t.flush
       
-      puts t.read
+        puts t.read
       
-      `htmldoc -t pdf --fontspacing 1.2 --fontsize 17pt --no-title --no-toc -f #{filename_and_absolute_path(:pdf)} #{t.path}`
+        `htmldoc -t pdf --fontspacing 1.2 --fontsize 17pt --no-title --no-toc -f #{filename_and_absolute_path(:pdf)} #{t.path}`
+        $?.success?
+      end
+    else
+      false
     end
   end
 
+  
   def generate_mobi_file
-    puts "No mobi!"
+    cmd = `which ebook-convert`.strip
+    if !cmd.empty?
+      puts `#{cmd} #{filename_and_absolute_path(:epub)} #{filename_and_absolute_path(:mobi)}`
+      puts $?.success?
+      return $?.success?
+    else
+      false
+    end
   end
   
   def generate_epub_file
@@ -104,9 +124,9 @@ class Story < ActiveRecord::Base
   
   def generate_file_cache
     generate_html_file    # all other formats use this as a starting point
-    generate_pdf_file if SUPPORTED_FORMATS.include?( "pdf" )
-    generate_mobi_file if SUPPORTED_FORMATS.include?( "mobi" )
     generate_epub_file if SUPPORTED_FORMATS.include?( "epub" )
+    generate_pdf_file if SUPPORTED_FORMATS.include?( "pdf" )
+    generate_mobi_file if SUPPORTED_FORMATS.include?( "mobi" )  # uses .epub as source
   end
   
   def delete_story_file( format )

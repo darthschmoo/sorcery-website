@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
   scope :recent, lambda { |num_days = 30| where("created_at > ?", num_days.days.ago ) }
   
   before_save :delete_file_cache
-  before_save :generate_file_cache
+  before_save :generate_file_cache, :if => Proc.new{|story| story.published? }
   
   def self.supported_formats
     formats = []

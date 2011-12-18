@@ -36,6 +36,18 @@ div.story
     background:
       image: url("/assets/constellation.png")
     border: 0px solid transparent
+  
+  p.unpublished
+    text-align: center
+    color: white
+    background-color: red
+    +simple_center()
+    width: 50%
+    font-size: 1.4em
+    
+  p.author
+    text-align: center
+    font-style: italic
 
 /************************* SCREEN-SIZE SPECIFIC DIRECTIVES ****************************/
 /* Only one story per row */
@@ -45,7 +57,7 @@ div.story
       width: 95%
       +simple_center()
       p.teaser
-        font-size: 1em
+        font-size: 0.95em
         margin: 0.2em
 
 /* two stories per row */

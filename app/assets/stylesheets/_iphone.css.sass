@@ -1,12 +1,15 @@
 /* Small screens need some love too */
 @media only screen and (max-width: 640px)
   body
-    width: 100%
-    font-size: 44px
+    width: 95%
 
     p, ol, ul, td
       font-size: 23px
       line-height: 36px
+      
+    h1, h2, h3, h4, h5, h6
+      font-size: 36px
+      line-height: 40px
 
 
   div#header
@@ -16,8 +19,8 @@
   div#sidebar
     width: 240px
     position: fixed
-    top: 30px
-    left: -210px
+    top: 76px
+    left: -215px
     background-color: rgba(64,64,128,0.7)
     &:hover    
       left: 0px   
@@ -31,12 +34,7 @@
     width: 90%
     margin-left: 9%
     
-  div.actions
-    a
-      padding: 0.3em
-      font-size: 1.3em
-
-    a.primary
-      font-size: 1.6em
-      
-    margin-bottom: 0.5em
+  div#boot_sequence
+    top: 25%
+    min-height: 5em
+    

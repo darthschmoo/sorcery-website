@@ -47,6 +47,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(params[:story])
+    @story.author = current_author
 
     respond_to do |format|
       if @story.save

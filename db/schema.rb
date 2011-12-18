@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111212060837) do
+ActiveRecord::Schema.define(:version => 20111218190101) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20111212060837) do
     t.text     "author_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
 end

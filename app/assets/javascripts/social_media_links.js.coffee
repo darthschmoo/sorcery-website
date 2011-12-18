@@ -11,6 +11,7 @@
   hello
 ###
 
+###
 class F
 	
 F::summ = (nums...) ->
@@ -22,6 +23,7 @@ window.summ = (nums...) ->
   result = 0
   nums.each(n) -> result += n
   result
+###
 
 # assume e is an element
 # add_howdy = ( e ) ->

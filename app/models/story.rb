@@ -1,6 +1,7 @@
 require 'bogus_request'
 
 class Story < ActiveRecord::Base
+  belongs_to :author, dependent: :destroy
   scope :published, where( "published = TRUE")
   scope :unpublished, where( "published = FALSE")
   scope :recent, lambda { |num_days = 30| where("created_at > ?", num_days.days.ago ) }
@@ -127,9 +128,5 @@ class Story < ActiveRecord::Base
   def delete_story_file( format )
     f = filename_and_absolute_path( format )
     FileUtils.rm( f ) if File.exist?( f )
-  end
-  
-  def author
-    "Bryce Anderson"
   end
 end

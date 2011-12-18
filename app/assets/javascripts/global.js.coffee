@@ -17,10 +17,10 @@ boot_sequence = ->
   true
   
 decorate_form_focus = ->
-  $('form.decorated input').blur -> 
+  $('form.decorated input,form.decorated textarea').blur -> 
     $(this).parent('div').removeClass('focused')
   
-  $('form.decorated input').focus -> 
+  $('form.decorated input, form.decorated textarea').focus -> 
     $(this).parent('div').addClass('focused')
 
 $(document).ready -> 

@@ -77,6 +77,9 @@ class AuthorsController < ApplicationController
     end
   end
 
+
+  
+
   protected
   def get_author
     @author = Author.find_by_id( params[:id] )

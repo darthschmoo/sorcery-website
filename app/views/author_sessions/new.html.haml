@@ -1,0 +1,6 @@
+%h1 Login
+
+= quick_form_for @author_session  do |f|
+  = render :partial => "form", :locals => { :builder => f }
+  
+  = f.quick_submit "login"

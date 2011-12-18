@@ -49,12 +49,20 @@ module ActionViewExtensions
         quick_form_element_common( content, object_name, method, options )
       end
       
+      def quick_submit( text = "Submit", opts = {} )
+        rval = content_tag( :div, class: 'submit' ) do
+          opts = { disable_with: "Submitting..." }.merge(opts)
+          self.submit_tag( text, opts )
+        end
+        rval.html_safe
+      end
+      
       def quick_form_element_common( content, object_name, method, options = {} )
         rval = content_tag( :div, :class => "#{object_name}__#{method}" ) do
           explanation = options.delete(:explanation)
           label_text = options.delete(:label) || "#{method}"
           label_options = options.delete(:label_options) || {}
-          rval = (label( object_name, method, "#{label_text.humanize}: #{explanation_button( explanation ) }".html_safe, label_options ) + content).html_safe
+          (label( object_name, method, "#{label_text.humanize}: #{explanation_button( explanation ) }".html_safe, label_options ) + content)
         end  
         rval.html_safe    
       end
@@ -118,6 +126,10 @@ module ActionViewExtensions
       
       def quick_calendar_select( description, method, options = {} )
         @template.quick_calendar_select( description, @object_name, method, options  )
+      end
+      
+      def quick_submit( text, opts = {} )
+        @template.quick_submit( text, opts )
       end
     end
     

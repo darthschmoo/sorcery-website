@@ -1,11 +1,14 @@
-<%= quick_form_for(@author) do |f| %>
-  <%= error_messages @author %>
+= quick_form_for(@author) do |f|
+  = error_messages @author
 
-  <%= f.quick_text_field( :name ) %>
-  <%= f.quick_text_field( :short_bio ) %>
-  <%= f.quick_text_area( :long_bio ) %>
+  = f.quick_text_field( :name )
+  = f.quick_text_field( :short_bio )
+  = f.quick_text_area( :long_bio )
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  %h2 Login information
+  = f.quick_text_field :email
+  = f.quick_password_field :password
+  = f.quick_password_field :password_confirmation
+
+  %div.actions
+    = f.submit

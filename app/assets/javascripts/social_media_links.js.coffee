@@ -2,10 +2,29 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-/* Hello */
+# Also, Hello
 
-summ = (nums...) ->
+###
+  Also:
+  hello
+  hello
+  hello
+###
+
+class F
+	
+F::summ = (nums...) ->
+	result = 0
+	
+	result
+
+window.summ = (nums...) ->
   result = 0
-  nums.forEach(n) -> result += n
+  nums.each(n) -> result += n
   result
- 
+
+# assume e is an element
+# add_howdy = ( e ) ->
+# 	$('div.content p').each 
+# 	  ( elem ) ->
+# 		  alert( e.text() )

@@ -1,11 +1,10 @@
-<% if record.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(record.errors.count, "error") %> prohibited this author from being saved:</h2>
+- if record.errors.any?
+  %div#error_explanation
+    %h2
+      = pluralize(record.errors.count, "error")
+      prohibited this author from being saved:
 
-    <ul>
-      <% record.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+    %ul
+      - record.errors.full_messages.each do |msg|
+        %li
+          = msg

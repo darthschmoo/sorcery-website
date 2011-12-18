@@ -3,11 +3,14 @@
 
 form.decorated
   width: 80%
+  max-width: 500px
   +simple_center()
   
   div
     margin: 1em
-    
+    width: 100%
+    clear: both
+    background-color: rgba( 255, 0, 0, 0.1 )
     label
       float: left
       width: 15%
@@ -15,7 +18,17 @@ form.decorated
       text-align: right
       
     input[type=submit]
-      +simple_center()
+      display: inline
+      text-align: center
+      +clearfix()
+      font-size: 2em
+      +round_corners(1em)
+      padding: 0.5em
+      border: 0px solid transparent
+      +reflective_vertical_gradient( black, 0.30 )
+      color: white
+      float: center
+      
       
     &.for_check_box
       p
@@ -27,6 +40,10 @@ form.decorated
       input[type=checkbox]
         float: left
         margin-left: 8em
+
+    &.submit
+      text-align: center
+      
         
   div.explanation_container
     position: relative

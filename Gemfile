@@ -18,7 +18,7 @@ group :assets do
 end
 
 gem 'therubyracer', '~> 0.9.9'
-
+gem 'authlogic', '>= 3.1'
 
 gem 'jquery-rails'
 

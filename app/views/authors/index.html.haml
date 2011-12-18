@@ -1,27 +1,31 @@
-<h1>Listing authors</h1>
+%h1 Listing authors
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Short bio</th>
-    <th>Long bio</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+%table
+  %thead
+    %td Name
+    %td Short bio
+    %td Long bio
+    %td 
+    %td 
+    %td 
+  
 
-<% @authors.each do |author| %>
-  <tr>
-    <td><%= author.name %></td>
-    <td><%= author.short_bio %></td>
-    <td><%= author.long_bio %></td>
-    <td><%= link_to 'Show', author %></td>
-    <td><%= link_to 'Edit', edit_author_path(author) %></td>
-    <td><%= link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  - @authors.each do |author| 
+    %tr 
+      %td  
+        = author.name 
+      %td  
+        = author.short_bio 
+      %td  
+        = author.long_bio 
+      %td  
+        = link_to 'Show', author 
+      %td  
+        = link_to 'Edit', edit_author_path(author) 
+      %td 
+        = link_to 'Destroy!', author, confirm: 'Are you sure?', method: :delete 
 
-<br />
+%br
 
-<%= link_to 'New Author', new_author_path %>
+%div.actions
+  = link_to 'New Author', new_author_path

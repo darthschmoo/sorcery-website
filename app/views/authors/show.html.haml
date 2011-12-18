@@ -1,11 +1,9 @@
-<h1>About <%= @author.name %></h1>
+%h1 About #{@author.name}
 
-<% logged_in? do -%>
-  <div class="actions">
-    <%= link_to 'Edit', edit_author_path(@author), :class => "primary" %>
-  </div>
-<% end -%>
+- logged_in? do
+  %div.actions
+    = link_to 'Edit', edit_author_path(@author), class: "primary"
 
-<%= markdown @author.long_bio %>
+= markdown @author.long_bio
 
-<p class="todo">Contact information should go here!</p>
+%p.todo Contact information should go here!

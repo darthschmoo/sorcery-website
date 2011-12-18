@@ -87,6 +87,10 @@ class StoriesController < ApplicationController
     end
   end
   
+  def test
+    
+  end
+  
   protected
   def get_story
     @story = Story.find_by_id( params[:id] )

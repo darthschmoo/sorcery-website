@@ -19,8 +19,15 @@ Sorcery::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  match 'login/:passkey' => 'simple_login#login'
-  match 'logout' => 'simple_login#logout'
+  # match 'login/:passkey' => 'simple_login#login'
+  # match 'logout' => 'simple_login#logout'
+
+  
+  resources :author_sessions
+  
+  match 'login' => "author_sessions#new"
+  match 'logout' => "author_sessions#destroy"
+  # map.root :controller => "author_sessions", :action => "new" # optional, this just sets the root route
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

@@ -1,6 +1,16 @@
-<div id="sidebar">
-  <p><%= link_to "stories", stories_path %></p>
-  <p><%= link_to "about me", "/author" %></p>
-  <%= render :partial => "/layouts/author" %>
-  <%= render :partial => "/layouts/social_media" %>
-</div>
+%div#sidebar
+  %p 
+    = link_to "stories", stories_path 
+  %p 
+    = link_to "about me", "/author" 
+  = render :partial => "/layouts/author" 
+  = render :partial => "/layouts/social_media" 
+  
+  - if logged_in? 
+    = link_to "Log out", author_session_path( current_author_session ), method: "delete" 
+  - else 
+    = reveal_block "Log in" do 
+      - form_for AuthorSession.new do |f| 
+        = render :partial => "/author_sessions/form", :locals => { :builder => f } 
+        = f.quick_submit "Log in" 
+

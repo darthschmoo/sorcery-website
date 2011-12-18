@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  include AuthlogicControls
+  include AuthlogicAccessMethods
+  
   protect_from_forgery
 
   def must_be_logged_in
@@ -9,10 +12,11 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?( &block )
-    if block_given? && session[:logged_in]
-      yield
+    if current_author_session
+      yield if block_given?
+      current_author_session
     else
-      session[:logged_in]
+      false
     end
   end
   
@@ -22,4 +26,14 @@ class ApplicationController < ActionController::Base
   end
   
   helper_method :logged_in?
+  
+  def reveal_block( title, &block )
+    r = render :partial => "/layouts/reveal_block" do
+      yield if block_given?
+    end
+    
+    r.join("\n").html_safe
+  end
+  
+  helper_method :reveal_block
 end

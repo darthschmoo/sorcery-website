@@ -1,14 +1,14 @@
-- @author ||= Author.primary
+- author = ( @author && !@author.new_record? ) ? @author : Author.primary
 
-- if @author && @author.social_media_links.length > 0 
+- if author && author.social_media_links.length > 0 
   %div#social_media_links
-    = render @author.social_media_links
+    = render author.social_media_links
   
-    - logged_in? do
+    - logged_in? && !author.new_record? do
       %div.actions
-        = link_to "Edit social links", author_social_media_links_path( @author ), :class => "primary"
+        = link_to "Edit social links", author_social_media_links_path( author ), class: "primary"
     
 - else
-  - logged_in? do
+  - logged_in? && !author.new_record? do
     %div.actions
-      = link_to "Set up social links", author_social_media_links_path( @author ), :class => "primary"
+      = link_to "Set up social links", author_social_media_links_path( author ), class: "primary"

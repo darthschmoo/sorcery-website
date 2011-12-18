@@ -14,61 +14,16 @@
   
 
   %body
-    = render :partial => "/layouts/application_header" 
-    = render :partial => "/layouts/application_sidebar" 
+    = render partial: "/layouts/application_header" 
+    = render partial: "/layouts/application_sidebar" 
   
     %div#content 
-      = render :partial => "/layouts/notices"
+      = render partial: "/layouts/notices"
       
       
       = yield 
     
     
-    = render :partial => "/layouts/application_footer" 
-    
-    %div#boot_sequence
-      %p QUEUEING AJAX REQUESTS
-      %p DESPLINING VECTOR IMAGES
-      %p A MOOSE BIT MY SISTER
-      %p BENCHMARKING CACHE LOADS
-      %p WARMING UP JIT COMPILER
-      %p COMMITTING CHANGES TO SOURCE
-      %p SENDING INVERTED TACHYON PULSE
-      %p VIOLATING COPYRIGHT LAWS
-      %p OPERATION MOLYBDENUM TORUS IS A GO
-      %p BUFFERING
-      %p INITIATING NUCLEAR LAUNCH SEQUENCE
-      %p RECALIBRATING REALITY
-      %p THERMAL SCANNING ACTIVE
-      %p SCANNING FOR ORGANIC LIFE
-      %p SCANNING FOR INORGANIC LIFE
-      %p CALCULATING GODEL PARADOX
-      %p ASSEMBLING TINY ROBOTS
-      %p ACCESSING LOCAL WI-FI
-      %p CUSTOMIZING HTML FOR FASTER XLIB PARSING
-      %p DEPLOYING HOLY HAND GRENADE
-      %p THIS SPACE FOR RENT
-      %p INTERNET EXPLORER DETECTED. SHUTTING DOWN
-      %p INSTALLING ROOTKIT
-      %p OPTIMIZING JAVASCRIPT LIBRARIES
-      %p RECOMPILING FORTRAN
-      %p ACHIEVING Y2K COMPLIANCE
-      %p SECURING MIND CONTROL LINK
-      %p ACTIVATING MIND CONTROL LINK
-      %p NEGOTIATING COMMUNICATION PROTOCOL
-      %p INSTALLING NEURAL ROOTKIT
-      %p UPLOADING ASSASSINATION TARGETS
-      %p DRINK FRUCTO-GULP
-      %p AUGMENTING REALITY
-      %p PADDING GOVERNMENT CONTRACT
-      %p FRETTING
-      %p DEPLOYING CRYPTOGRAPHIC INTERFACE
-      %p TRIANGULATING TARGET
-      %p RE-READING 'WEB DESIGN FOR THE PAINFULLY STUPID'
-      %p DEBUGGING WETWARE
-      %p INVOKING ADMIN PRIVILEGES
-      %p DELETING INCRIMINATING EVIDENCE
-      %p FALSIFYING LOGFILES
-      %p SACRIFICING GOAT.EXE
-      %p SACKING RESPONSIBLE PARTIES
+    = render partial: "/layouts/application_footer" 
+    = render partial: "/layouts/boot_sequence"
 

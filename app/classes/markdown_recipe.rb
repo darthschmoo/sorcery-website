@@ -8,7 +8,7 @@ class MarkdownRecipe < FormatRecipe
       f << @story.body
       f << "\n\n"
       f << "*****\n"
-      f << "Copyright notice: #{Sorcery.config.copyright_notice}"
+      f << "Copyright notice: #{Sorcery.config.story.copyright_notice}"
     end
     
     true

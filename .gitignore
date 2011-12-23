@@ -4,11 +4,14 @@ log/*.log
 tmp/
 .sass-cache/
 Capfile
+config/app.yml
+config/database.yml
 config/deploy.example.rb
 config/deploy.rb
 lib/generators
 public/assets/*
+public/images/
+public/favicon.ico.*
 public/downloads/stories/*
-config/app.yml
-config/database.yml
+stash/
 

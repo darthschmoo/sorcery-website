@@ -37,6 +37,8 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'minitest'
+  gem "factory_girl", "~> 2.3.2"
 end
 
 gem 'bundler'

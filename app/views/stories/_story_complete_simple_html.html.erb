@@ -14,5 +14,5 @@
 
     = markdown( story_complete_simple_html.body )
 
-    %p.copyright_notice [#{Sorcery.config.story.copyright_notice.html_safe}]
+    %p.copyright_notice Copyright notice: #{markdown Sorcery.config.story.copyright_notice}
 

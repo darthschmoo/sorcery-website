@@ -91,8 +91,9 @@ class FormatRecipe
   end
   
   def format_writable?( format )
-    return true if File.writable?( @story.filename_and_absolute_path( format ) )
-    return true if !format_exists?( format ) && File.writable?( Story.stories_directory ) 
+    file = @story.filename_and_absolute_path( format )
+    return true if format_exists?( format ) && File.writable?( file )
+    return true if !format_exists?( format ) && File.writable?( File.dirname( file ) ) 
     return false
   end
 end

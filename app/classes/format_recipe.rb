@@ -33,10 +33,6 @@ class FormatRecipe
     Story::SUPPORTED_FORMATS.include?(recipe.class.format_name)
   end
   
-  precondition "Directory not writable: #{Story.stories_directory}" do |recipe|
-    File.writable? Story.stories_directory
-  end
-
   def self.cook( story )
     puts "Cooking #{self.format_name}"
     @recipe = self.new( story )

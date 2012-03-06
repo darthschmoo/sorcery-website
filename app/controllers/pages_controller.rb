@@ -6,10 +6,7 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @pages }
-    end
+    standard_response @pages
   end
 
   # GET /pages/1
@@ -24,10 +21,7 @@ class PagesController < ApplicationController
       @page = Page.find(params[:id])
     end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @page }
-    end
+    standard_response @page
   end
 
   # GET /pages/new
@@ -35,10 +29,7 @@ class PagesController < ApplicationController
   def new
     @page = Page.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @page }
-    end
+    standard_response @page
   end
 
   # GET /pages/1/edit
@@ -51,31 +42,15 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render json: @page, status: :created, location: @page }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
-    end
+    standard_save_on_create_response @page
   end
 
   # PUT /pages/1
   # PUT /pages/1.json
   def update
     @page = Page.find(params[:id])
-
-    respond_to do |format|
-      if @page.update_attributes(params[:page])
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
-    end
+    
+    standard_update_record_response @page, params[:page]
   end
 
   # DELETE /pages/1

@@ -49,15 +49,7 @@ class StoriesController < ApplicationController
     @story = Story.new(params[:story])
     @story.author = current_author
 
-    respond_to do |format|
-      if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
-        format.json { render json: @story, status: :created, location: @story }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @story.errors, status: :unprocessable_entity }
-      end
-    end
+    standard_save_on_create_response @story
   end
 
   # PUT /stories/1
@@ -65,15 +57,7 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
 
-    respond_to do |format|
-      if @story.update_attributes(params[:story])
-        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @story.errors, status: :unprocessable_entity }
-      end
-    end
+    standard_update_record_response @story, params[:story]
   end
 
   # DELETE /stories/1

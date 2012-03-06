@@ -44,6 +44,10 @@ module ActionViewExtensions
         rval.html_safe
       end
       
+      def quick_file_field( object_name, method, options = {} )
+        quick_form_element_common( self.file_field( object_name, method, options ), object_name, method, options )
+      end
+      
       def quick_collection_select( object_name, method, collection, value_method, text_method, options = {}, html_options = {} ) 
         content = self.collection_select( object_name, method, collection, value_method, text_method, options, html_options )
         quick_form_element_common( content, object_name, method, options )
@@ -114,6 +118,10 @@ module ActionViewExtensions
       
       def quick_text_area( method, options = {} )
         @template.quick_text_area( @object_name, method, options.merge(:object => @object) )
+      end
+
+      def quick_file_field( method, options = {} )
+        @template.quick_file_field( @object_name, method, options.merge(:object => @object) )
       end
       
       def quick_check_box( description, method, options = {}, checked_value = "1", unchecked_value = "0" )

@@ -1,0 +1,9 @@
+= quick_form_for(@page) do |f|
+  = error_messages(@page)
+
+  = f.quick_text_field :slug
+  = f.quick_text_field :title
+  = f.quick_text_area :content
+
+  %div.actions
+    = f.submit

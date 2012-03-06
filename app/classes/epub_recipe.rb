@@ -17,11 +17,22 @@ class EpubRecipe < FormatRecipe
       publisher   "bannedsorcery.com"
       date        (story.new_record? ? Time.now : story.updated_at).strftime("%Y-%m-%d")
       
+      
+      story_file = story.filename_and_absolute_path( :html )
+      stylesheet = File.join( Rails.root, "app", "assets", "stylesheets", "epub.css")
+      horizontal_break = File.join( Rails.root, "app", "assets", "images", "hr_swirl.png")
+      
+      
       # canonical URL for this story
       identifier  BogusRequest().story_url(story), scheme: "URI"
-      files [ story.filename_and_absolute_path( :html ), 
-             File.join( Rails.root, "app", "assets", "stylesheets", "epub.css"),
-             File.join( Rails.root, "app", "assets", "images", "hr_swirl.png") ]
+      files [ story_file,
+              { stylesheet => "stylesheets" },
+              { horizontal_break => "images" }
+            ]
+            
+      nav [ { :label => story.title}
+        
+      ]
     end
     
     epub.save( story.filename_and_absolute_path(:epub) )

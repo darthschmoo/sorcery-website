@@ -8,7 +8,8 @@ Sorcery::Application.routes.draw do
   end
   
   resources :stories
-  resources :pages
+  resources :pages 
+  resources :books
   
   # hard-coding to the first author for now.
   match 'author' => 'authors#show', :id => 1

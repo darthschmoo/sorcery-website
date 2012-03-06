@@ -35,5 +35,41 @@ class ApplicationController < ActionController::Base
     r.join("\n").html_safe
   end
   
+  def standard_response( record )
+    respond_to do |format|
+      format.html
+      format.json { render :json, record }
+      format.xml { render :xml, record }
+    end
+  end
+  
+  def standard_save_on_create_response( record )
+    if record.save
+      respond_to do |format|
+        format.html { redirect_to record, notice: "#{record.class.name} was successfully created."}
+        format.json { render json: record, status: :created, location: record }
+      end  
+    else
+      respond_to do |format|
+        format.html { render action: "new" }
+        format.json { render json: record.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def standard_update_record_response record, _params
+    if record.update_attributes(_params)
+      respond_to do |format|
+        format.html { redirect_to record, notice: 'Author was successfully updated.' }
+        format.json { head :ok }
+      end
+    else
+      respond_to do |format|
+        format.html { render action: "edit" }
+        format.json { render json: record.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   helper_method :reveal_block
 end

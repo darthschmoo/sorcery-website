@@ -1,0 +1,8 @@
+%h1 Books
+
+- logged_in? do
+  %div.actions
+    = link_to 'New Book', new_book_path, class: "primary"
+
+= render @books
+

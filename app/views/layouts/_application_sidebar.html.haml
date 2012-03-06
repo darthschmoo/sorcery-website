@@ -1,8 +1,11 @@
 %div#sidebar
   %p 
     = link_to "stories", stories_path 
+  %p
+    = link_to "books", books_path
   %p 
     = link_to "about me", "/author" 
+
   = render :partial => "/layouts/author" 
   = render :partial => "/layouts/social_media" 
   

@@ -6,64 +6,39 @@ class AuthorsController < ApplicationController
   def index
     @authors = Author.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @authors }
-    end
+    standard_response @authors
   end
 
   # GET /authors/1
   # GET /authors/1.json
   def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @author }
-    end
+    standard_response @author
   end
 
   # GET /authors/new
   # GET /authors/new.json
   def new
     @author = Author.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @author }
-    end
+    
+    standard_response @author
   end
 
   # GET /authors/1/edit
   def edit
+    # empty
   end
 
   # POST /authors
   # POST /authors.json
   def create
-    @author = Author.new(params[:author])
-
-    respond_to do |format|
-      if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
-        format.json { render json: @author, status: :created, location: @author }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
-      end
-    end
+    @author = Author.new( params[:author] )
+    standard_save_on_create_response( @author )
   end
 
   # PUT /authors/1
   # PUT /authors/1.json
   def update
-    respond_to do |format|
-      if @author.update_attributes(params[:author])
-        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
-      end
-    end
+    standard_update_record_response @author, params[:author]
   end
 
   # DELETE /authors/1

@@ -54,8 +54,8 @@ module EpubForger
   def package_opf
     xml = Builder::XmlMarkup.new(:indent => 2)
     xml.instruct!
-    xml.package(xmlns: "http://www.idpf.org/2007/opf", version: "3.0", "xml:lang": "en", "unique-identifier": "pub-id") do
-      xml.metadata("xmlns:dc" : "http://purl.org/dc/elements/1.1/") do
+    xml.package(xmlns: "http://www.idpf.org/2007/opf", version: "3.0", "xml:lang" => "en", "unique-identifier" => "pub-id") do
+      xml.metadata("xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
         xml.dc(:title, id: "title")
     <<-EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -131,5 +131,7 @@ module EpubForger
       </spine>
     </package>
     EOS
+      end
+    end
   end
 end

@@ -1,1 +1,14 @@
-= book.title
+%div.book
+  
+  %h2
+    = book.title
+    
+  %div.image
+    = image_tag( book.image )
+    
+  %div.summary
+    = markdown book.summary
+    
+  
+  %div.how_to_buy
+    = markdown book.how_to_buy

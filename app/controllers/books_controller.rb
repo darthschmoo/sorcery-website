@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_filter :must_be_logged_in, only: %w(new edit create update destroy)
-  before_filter :get_book, only: %w(create edit update show destroy)
+  before_filter :get_book, only: %w(edit update show destroy)
   before_filter :book_must_be_published_unless_owner, except: %w(index)
   
   

@@ -15,3 +15,4 @@ public/favicon.ico.*
 public/downloads/stories/*
 stash/
 *.DS_Store
+public/assets/covers

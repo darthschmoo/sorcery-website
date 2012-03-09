@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120306131803) do
     t.string   "teaser"
     t.string   "image"
     t.text     "summary"
+    t.text     "how_to_buy"
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"

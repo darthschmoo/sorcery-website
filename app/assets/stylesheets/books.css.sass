@@ -1,0 +1,31 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import _library
+
+
+div.book
+  
+  +clearfix()
+  
+  h2
+    text-align: center
+    
+  div.image
+    width: 49%
+    float: left
+    background-color: rgba(0,0,0,0.4) 
+        
+    img
+      width: 250px
+      +simple_center()
+    
+  div.summary
+    width: 49%
+    float: right
+    background-color: rgba(0,0,0,0.4) 
+    
+  div.how_to_buy
+    clear: both
+    width: 100%
+    text-align: center

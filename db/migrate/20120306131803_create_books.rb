@@ -4,7 +4,9 @@ class CreateBooks < ActiveRecord::Migration
       t.string :title
       t.string :teaser
       t.string :image
+      
       t.text :summary
+      t.text :how_to_buy
       t.boolean :published
 
       t.timestamps

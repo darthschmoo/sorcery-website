@@ -1,11 +1,12 @@
-= quick_form_for @book do |f|
-  = error_messages(@book)
+= quick_form_for @book, :html => {:multipart => true} do |f|
+  = error_messages @book
 
   = f.quick_text_field :title
   = f.quick_text_area :teaser
   = f.quick_text_area :summary
   = f.quick_check_box "Publish?", :published, explanation: "Should the story be visible to readers?"
-  = f.quick_file_field :cover_file
+  = f.quick_file_field :image, explanation: "Cover art for this book. JPG/PNG/GIF acceptable. Ideal width: 600px."
+  = f.quick_text_area :how_to_buy
 
   %div.actions
     = f.submit

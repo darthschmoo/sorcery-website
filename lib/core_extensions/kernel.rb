@@ -1,5 +1,5 @@
 module Kernel
-  def tempfile &block
+  def sorcery_tempfile &block
     @tempfile_suffix ||= 0
     @tempfile_suffix += 1
     

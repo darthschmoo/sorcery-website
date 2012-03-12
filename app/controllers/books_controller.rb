@@ -6,7 +6,6 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.all
-
     standard_response( @books )
   end
 

@@ -1,0 +1,24 @@
+%div.reviewer
+  %h2.name
+    = reviewer.name
+  
+  %p.url= link_to "Website", reviewer.url
+  
+  %p.email
+    = mail_to reviewer.email
+  
+  %p.guidelines
+    = link_to "Review guidelines", reviewer.guidelines
+    
+  %div.notes
+    = markdown reviewer.notes
+    
+  - if reviewer.submissions.length > 0
+    %ul.reviewer_submissions
+      - for submission in reviewer.submissions
+        %li Sent #{submission.book.title} to #{reviewer.name} on #{submission.created_at.strftime("%Y-%m-%d")}
+  
+  
+  %div.actions
+    = link_to "Edit", edit_publicity_reviewer_path( reviewer )
+    = link_to "Book sent for review", action: "new_submission", :id => reviewer

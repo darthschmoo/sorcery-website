@@ -1,4 +1,17 @@
 Sorcery::Application.routes.draw do
+  namespace :publicity do 
+    resources :reviewers do
+      collection do
+        get 'index'
+      end
+      
+      member do
+        get 'new_submission'
+        post 'submitted_for_review'
+      end
+    end
+  end
+
   resources :authors do
     resources :social_media_links do
       collection do

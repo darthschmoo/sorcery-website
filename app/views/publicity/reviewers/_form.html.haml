@@ -1,0 +1,17 @@
+= quick_form_for @reviewer, :html => {:multipart => true} do |f|
+  = error_messages @reviewer
+
+  = f.quick_text_field :name
+  = f.quick_text_field :url
+  = f.quick_text_field :email
+  = f.quick_text_field :status
+  = f.quick_text_field :guidelines
+  = f.quick_text_area :notes
+
+  %div.actions
+    = f.submit
+  
+- unless @reviewer.new_record?
+  %div.actions
+    = link_to "View", publicity_reviewer_path( @book )
+

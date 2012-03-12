@@ -1,0 +1,8 @@
+%h1 Reviewers
+
+= render @reviewers
+- if @reviewers.length.zero?
+  %p No reviewers listed in database.
+  
+%div.actions
+  = link_to "New reviewer", new_publicity_reviewer_path

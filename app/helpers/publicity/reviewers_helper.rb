@@ -1,0 +1,2 @@
+module Publicity::ReviewersHelper
+end

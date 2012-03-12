@@ -1,0 +1,9 @@
+%h1 You've sent a book out to #{@reviewer.name}
+
+%p Please record the fact for posteriority.
+
+= form_for "review_submission", url: { action: "submitted_for_review", id: @reviewer }, html: { :class => "decorated" } do |f|
+  = error_messages @review_submission
+  = f.quick_collection_select :book_id, @books, :id, :title
+  = f.quick_text_area :notes
+  = f.submit

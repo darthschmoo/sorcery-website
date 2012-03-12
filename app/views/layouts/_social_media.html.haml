@@ -2,7 +2,7 @@
 
 - if author && author.social_media_links.length > 0 
   %div#social_media_links
-    = render author.social_media_links
+    = render partial: "/social_media_links/social_media_link", collection: author.social_media_links
   
     - logged_in? && !author.new_record? do
       %div.actions

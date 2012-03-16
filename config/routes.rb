@@ -23,6 +23,7 @@ Sorcery::Application.routes.draw do
   resources :stories
   resources :pages 
   resources :books
+  resources :tweet_quotes
   
   # hard-coding to the first author for now.
   match 'author' => 'authors#show', :id => 1

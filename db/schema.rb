@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312012539) do
+ActiveRecord::Schema.define(:version => 20120315141133) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(:version => 20120312012539) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "author_id"
+  end
+
+  create_table "tweet_quotes", :force => true do |t|
+    t.string   "text"
+    t.integer  "book_id"
+    t.datetime "last_tweeted_on", :default => '1977-01-01 00:00:00'
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,0 +1,5 @@
+%div.tweet_quote{ id: html_id(tweet_quote) }
+  %p
+    -if logged_in?
+      = link_to "(remove)", tweet_quote_path( tweet_quote ), remote: true, method: "delete", confirm: "Confirm this action.", class: "destroy_tweet_quote"
+    = tweet_quote.text

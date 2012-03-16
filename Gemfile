@@ -46,3 +46,8 @@ gem 'bluecloth'
 gem 'liquid'
 gem 'haml'
 gem 'eeepub'
+gem 'pacecar'
+
+# required for publicity tweets
+gem 'twitter'
+gem 'oauth'

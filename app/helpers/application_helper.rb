@@ -25,6 +25,10 @@ module ApplicationHelper
   def markdown( text = "" )
     BlueCloth.new( text ).to_html.html_safe
   end
+
+  def html_id( record )
+    "#{record.class.name.tableize.singularize}_#{ record.id }"
+  end
 end
 
 ApplicationHelper.extend(ApplicationHelper)

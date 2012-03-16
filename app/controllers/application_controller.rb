@@ -71,5 +71,25 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def standard_destroy_success_response( record )
+    respond_to do |format|
+      format.html { render template: "/layouts/destroy", locals: { record: record }, layout: nil }
+    end
+  end
+  
+  def standard_destroy_failure_response( record )
+    respond_to do |format|
+      raise "TODO"
+    end
+  end
+  
+  def standard_destroy_response( record )
+    if record.destroy
+      standard_destroy_success_response( record )
+    else
+      standard_destroy_failure_response( record )
+    end
+  end
+  
   helper_method :reveal_block
 end

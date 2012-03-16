@@ -2,6 +2,16 @@
 
 = render @book
 
-%div.actions
-  = link_to "Edit", edit_book_path(@book)
+- if logged_in?
+  %h2 Promotional Tweets
+  
+  %div#tweet_quotes
+    = render @book.tweet_quotes
+  
+  = quick_form_for(@book.new_tweet_quote, remote: true, html: {id: "create_tweet_quote"}) do |f|
+    = render partial: "/tweet_quotes/form", locals: {builder: f}
+    = f.submit
+
+  %div.actions
+    = link_to "Edit", edit_book_path(@book)
 

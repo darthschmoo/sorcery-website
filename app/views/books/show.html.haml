@@ -10,8 +10,8 @@
   
   = quick_form_for(@book.new_tweet_quote, remote: true, html: {id: "create_tweet_quote"}) do |f|
     = render partial: "/tweet_quotes/form", locals: {builder: f}
-    = f.submit
-
+    %p Press Enter key to submit
+    
   %div.actions
     = link_to "Edit", edit_book_path(@book)
 

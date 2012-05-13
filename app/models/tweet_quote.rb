@@ -1,4 +1,6 @@
 class TweetQuote < ActiveRecord::Base
+  TIME_BETWEEN_TWEEPEATS = 3.months.ago
+  
   belongs_to :book
   include Pacecar
   
@@ -11,9 +13,13 @@ class TweetQuote < ActiveRecord::Base
   }
   
   def self.send_publicity_tweet
-    tweet = self.tweeted_on_before(3.months.ago).random.first
+    tweet = self.tweeted_on_before(TIME_BETWEEN_TWEEPEATS).random.first
     if TwitterGateway.write( tweet.text )
-      tweet.update_attribute( :last_tweeted_on, Time.now )
+      tweet.mark_as_just_tweeted
     end
+  end
+  
+  def mark_as_just_tweeted
+    tweet.update_attribute( :last_tweeted_on, Time.now )
   end
 end

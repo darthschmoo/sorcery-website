@@ -30,7 +30,6 @@ get_transform_coordinates = (e) ->
     coords[1].split(",").map (input) ->
       new Number( input )
   else
-    debugger
     null
     
 get_scale = (e) ->

@@ -20,7 +20,5 @@ module TwitterGateway
 
   def self.write( tweet )
     response = Twitter.update( tweet )
-    debugger
-    puts "Hello" 
   end
 end

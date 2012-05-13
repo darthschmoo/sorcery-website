@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+// 
 //  require_tree .
-//= require utils/periodical_executor
+//= require utils/jquery.periodic
 //= require global

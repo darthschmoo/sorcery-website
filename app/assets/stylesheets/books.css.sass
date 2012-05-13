@@ -27,5 +27,28 @@ div.book
     
   div.how_to_buy
     clear: both
-    width: 100%
+    width: 90%
+    +simple_center()
     text-align: center
+    border: 1em solid transparent
+    
+    p
+      display: inline
+      margin: 1em
+
+    a
+      opacity: 0.9
+      
+    a:hover
+      opacity: 1.0
+      background-color: transparent
+    
+p.tweet_length_counter
+  color: white
+  background-color: #990000
+  width: 3.0em
+  font-size: 1.6em
+  text-align: center
+  padding-top: 0.4em
+  padding-bottom: 0.4em
+  +round_corners(0.4em)

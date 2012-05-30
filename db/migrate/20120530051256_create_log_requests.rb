@@ -5,7 +5,7 @@ class CreateLogRequests < ActiveRecord::Migration
       t.string :request_uri
       t.string :user_agent
       t.string :formats
-
+      
       t.timestamps
     end
   end

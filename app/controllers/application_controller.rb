@@ -99,11 +99,13 @@ class ApplicationController < ActionController::Base
     request_uri = request.env['REQUEST_URI']
     user_agent = request.env['HTTP_USER_AGENT']
     formats = request.env['action_dispatch.request.formats'].inspect
+    remote_addr = request.env['REMOTE_ADDR']
     
     LogRequest.create( { :request_params => request_params,
                          :request_uri    => request_uri,
                          :user_agent     => user_agent,
-                         :formats        => formats 
+                         :formats        => formats,
+                         :remote_addr    => remote_addr
                      } )
   end
 end

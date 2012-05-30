@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530051256) do
+ActiveRecord::Schema.define(:version => 20120530060023) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120530051256) do
     t.string   "formats"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remote_addr"
   end
 
   create_table "pages", :force => true do |t|

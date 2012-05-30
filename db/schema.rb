@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120315141133) do
+ActiveRecord::Schema.define(:version => 20120530051256) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20120315141133) do
     t.text     "summary"
     t.text     "how_to_buy"
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_requests", :force => true do |t|
+    t.string   "request_params"
+    t.string   "request_uri"
+    t.string   "user_agent"
+    t.string   "formats"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

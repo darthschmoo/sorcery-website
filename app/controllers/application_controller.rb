@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include AuthlogicAccessMethods
   
   protect_from_forgery
+  before_filter :log_request
 
   def must_be_logged_in
     unless logged_in?
@@ -92,4 +93,17 @@ class ApplicationController < ActionController::Base
   end
   
   helper_method :reveal_block
+  
+  def log_request
+    request_params = request.env['action_dispatch.request.parameters'].inspect
+    request_uri = request.env['REQUEST_URI']
+    user_agent = request.env['HTTP_USER_AGENT']
+    formats = request.env['action_dispatch.request.formats'].inspect
+    
+    LogRequest.create( { :request_params => request_params,
+                         :request_uri    => request_uri,
+                         :user_agent     => user_agent,
+                         :formats        => formats 
+                     } )
+  end
 end

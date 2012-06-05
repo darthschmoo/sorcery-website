@@ -1,0 +1,6 @@
+= render @book_review
+
+- if logged_in?
+  %div.actions
+    = link_to "Edit", edit_book_review_path(@book_review)
+

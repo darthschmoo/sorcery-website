@@ -1,0 +1,14 @@
+%h1 Too Good to Sell This Bad
+
+- logged_in? do
+  %div.actions
+    = link_to 'New Book Review', new_book_review_path, class: "primary"
+
+%p The best books don't always climb the bestseller lists.  Self-published books are especially prone to wither in obscurity; they may not be marketed effectively, and for many people "self-published" is synonymous with poorly written, spellcheck-disabled sludge.
+
+%p This is where I pan on the banks of the river of self-published fiction, looking for shiny gold to review.  Books reviewed here will be self-published, very obscure (judged by Amazon sales rank and lack of reviews), mostly free of typos and grammatical issues, and very promising.  I'll mostly be focusing on sci-fi and fantasy.
+
+
+= will_paginate(@book_reviews)
+= render @book_reviews
+= will_paginate(@book_reviews)

@@ -23,6 +23,7 @@ Sorcery::Application.routes.draw do
   resources :stories
   resources :pages 
   resources :books
+  resources :book_reviews 
   resources :tweet_quotes
   
   # hard-coding to the first author for now.

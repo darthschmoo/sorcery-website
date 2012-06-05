@@ -1,0 +1,21 @@
+%div.review{ id: html_id(book_review) }
+  %h2.book_title 
+    %em #{book_review.book_title}, 
+    by #{book_review.book_author}
+  
+  %p.rating 
+    %strong
+      Rating:
+    #{book_review.rating}
+    
+  %p.available
+    %strong
+      Available at: 
+    #{link_to book_review.book_link.truncate(30) + "...", book_review.book_link}
+  
+  %h3.summary Summary
+  = markdown book_review.summary
+  
+  %h3.review Review
+  = markdown book_review.review
+  

@@ -21,6 +21,8 @@ gem 'therubyracer', '~> 0.9.9'
 gem 'authlogic', '>= 3.1'
 
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.0'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -3,6 +3,10 @@
     %em #{book_review.book_title}, 
     by #{book_review.book_author}
   
+  - unless book_review.cover_image.blank?
+    %div.cover_image 
+      = image_tag( book_review.cover_image )
+
   %p.rating 
     %strong
       Rating:
@@ -11,7 +15,7 @@
   %p.available
     %strong
       Available at: 
-    #{link_to book_review.book_link.truncate(30), book_review.book_link}
+    #{link_to book_review.book_link.truncate(60), book_review.book_link}
   
   %h3.summary Summary
   = markdown book_review.summary

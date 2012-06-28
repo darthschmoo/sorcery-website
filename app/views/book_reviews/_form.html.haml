@@ -1,10 +1,10 @@
-= quick_form_for @book_review do |f|
+= quick_form_for @book_review, :html => {:multipart => true} do |f|
   = error_messages @book_review
   
   = f.quick_text_field :book_title
   = f.quick_text_field :book_author
   = f.quick_text_field :rating
-  = f.quick_text_field :cover_image
+  = f.quick_file_field :cover_image, explanation: "Cover art for this book. JPG/PNG/GIF acceptable. Ideal width: 200px."
   = f.quick_text_field :book_link, explanation: "Link to the book (on Amazon, other retailer, or author's website)"
   = f.quick_text_area  :summary, explanation: "Genre, brief plot summary (markdown)."
   = f.quick_text_area  :review,  explanation: "What did you think of it? Strengths, weaknesses, favorite lines."

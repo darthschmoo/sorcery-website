@@ -7,6 +7,7 @@ gem 'rails', '3.1.4'
 
 gem 'mysql2'
 
+gem 'sass'
 gem 'sass-rails',   '~> 3.1.4'
 gem 'jquery-rails'   ##, '~> 3.1.3'
 gem 'compass', "~> 0.12.alpha.0"

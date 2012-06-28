@@ -188,6 +188,7 @@ DEPENDENCIES
   oauth
   pacecar
   rails (= 3.1.4)
+  sass
   sass-rails (~> 3.1.4)
   therubyracer (~> 0.9.9)
   turn

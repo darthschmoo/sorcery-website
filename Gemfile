@@ -11,6 +11,7 @@ gem 'sass'
 gem 'sass-rails',   '~> 3.1.4'
 gem 'jquery-rails'   ##, '~> 3.1.3'
 gem 'compass', "~> 0.12.alpha.0"
+gem 'compass-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

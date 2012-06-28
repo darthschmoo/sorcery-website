@@ -16,8 +16,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 	gem 'sass'
 	gem 'sass-rails',   '~> 3.1.4'
-	gem 'compass', "~> 0.12.alpha.0"
-	gem 'compass-rails'
+	gem 'compass', "0.12.alpha.0"
+	# gem 'compass-rails'
 end
 
 gem 'therubyracer', '~> 0.9.9'

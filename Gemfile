@@ -33,8 +33,6 @@ gem 'will_paginate', '~> 3.0'
 # Deploy with Capistrano
 gem 'capistrano', ">= 2.9.0"
 
-# To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
   # Pretty printed test output
@@ -43,6 +41,9 @@ group :test do
   gem 'factory_girl', "~> 3.0"
   gem 'factory_girl_rails', "~> 3.0"
   gem 'faker'
+
+	# To use debugger
+	gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 gem 'bundler'

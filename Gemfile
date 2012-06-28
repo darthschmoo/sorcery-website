@@ -43,7 +43,7 @@ group :test do
   gem 'faker'
 
 	# To use debugger
-	gem 'ruby-debug19', :require => 'ruby-debug'
+	gem 'debugger'
 end
 
 gem 'bundler'

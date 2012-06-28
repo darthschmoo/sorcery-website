@@ -1,6 +1,9 @@
 ENV["RAILS_ENV"] = "test"
 
 require_relative "custom_assertions"
+require 'ruby-debug'
+debugger
+require_relative "factories"
 # require_relative "factories"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'

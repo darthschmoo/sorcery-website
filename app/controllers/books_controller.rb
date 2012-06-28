@@ -41,7 +41,7 @@ class BooksController < ApplicationController
   end
   
   def book_must_be_published_unless_owner
-    unless !@book || current_author == @book.author
+    unless !@book || @book.published? || current_author == @book.author
       abandon_action( "This book is not visible to the public." )
     end
   end

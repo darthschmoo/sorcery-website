@@ -1,7 +1,11 @@
 %div.book
   
   %h2
-    = book.title
+    %span.title
+      = book.title
+    %br
+    %span.author
+      by #{book.author.name}
     
   %div.image
     = image_tag( book.image )

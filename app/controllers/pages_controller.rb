@@ -14,8 +14,16 @@ class PagesController < ApplicationController
   def show
     if params[:slug]
       @page = Page.find_by_slug( params[:slug] )
-      if @page.nil? && params[:slug] == "/"
-        @page = create_default_root_page
+      if @page.nil?
+        if params[:slug] == "/"
+          @page = create_default_root_page
+        elsif logged_in?
+          redirect_to new_page_path( page: { slug: params[:slug] } )
+          return false
+        else
+          render template: "404", status: 404
+          return false
+        end
       end
     else
       @page = Page.find(params[:id])
@@ -27,7 +35,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   # GET /pages/new.json
   def new
-    @page = Page.new
+    @page = Page.new( params[:page] )
 
     standard_response @page
   end

@@ -3,7 +3,7 @@ class BookReviewsController < ApplicationController
   before_filter :get_book_review, only: %w(edit update show destroy)
   
   def index
-    @book_reviews = BookReview.paginate(per_page: 5, page: params[:page])
+    @book_reviews = BookReview.order("created_at DESC").paginate(per_page: 5, page: params[:page])
     standard_response( @book_reviews )
   end
 

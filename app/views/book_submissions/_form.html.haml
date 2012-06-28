@@ -1,0 +1,17 @@
+= quick_form_for @book_submission, :html => {:multipart => true} do |f|
+  = error_messages @book_submission
+
+  = f.quick_text_field :book_title
+  = f.quick_text_field :book_author
+  = f.quick_text_field :author_email
+  = f.quick_text_field :book_link, explanation: "Link to the book on Amazon, other retailer, or author's website.  Note: if the book isn't available on Amazon, it's very unlikely to be reviewed."
+
+  %br
+  
+  = f.quick_text_area  :message, explanation: "Anything I should know?"
+  
+  = f.quick_file_field :file
+  
+  %div.actions
+    = f.submit
+  

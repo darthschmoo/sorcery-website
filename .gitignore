@@ -16,3 +16,9 @@ public/downloads/stories/*
 stash/
 *.DS_Store
 public/assets/covers
+app/views/pages/abstract7-mandala.svg
+app/views/pages/svgtest.html.erb
+code_cache.rb
+code_cache2.rb
+markitup_latest/
+shared/

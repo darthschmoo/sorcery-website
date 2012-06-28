@@ -10,3 +10,4 @@
 //  require_tree .
 //= require utils/jquery.periodic
 //= require global
+//= require disqus

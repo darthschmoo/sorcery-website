@@ -40,7 +40,9 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'minitest'
-  gem "factory_girl", "~> 2.3.2"
+  gem 'factory_girl', "~> 3.0"
+  gem 'factory_girl_rails', "~> 3.0"
+  gem 'faker'
 end
 
 gem 'bundler'

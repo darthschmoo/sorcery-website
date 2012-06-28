@@ -24,6 +24,13 @@ Sorcery::Application.routes.draw do
   resources :pages 
   resources :books
   resources :book_reviews 
+  
+  resources :book_submissions do
+    member do
+      get 'download'  
+    end  
+  end
+  
   resources :tweet_quotes
   
   # hard-coding to the first author for now.

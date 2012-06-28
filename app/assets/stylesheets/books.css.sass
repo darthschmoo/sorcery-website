@@ -5,11 +5,16 @@
 
 
 div.book
-  
+  background-color: white
+  +round_corners()
   +clearfix()
   
   h2
+    line-height: 1.4em
     text-align: center
+    span.title
+      font-style: italic
+      font-size: 1.3em
     
   div.image
     width: 49%

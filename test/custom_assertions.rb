@@ -240,7 +240,7 @@ module CustomAssertions
   end
 
   def assert_times_are_close( t1, t2, window = 1, message = "")
-    message = build_message(message, "times should be within ? second of each other.", window)
+    message = build_message(message, "times should be within ? second(s) of each other.", window)
 
     assert_block message do
       (t1 - t2).abs < window

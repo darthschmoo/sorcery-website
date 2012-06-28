@@ -37,14 +37,20 @@ div#content
     text-align: center
     
 div#notices
+  p.error, p.notice, p.warning
+    color: white
+    width: 25%
+    +simple_center()
+    text-align: center
+    
   p.error
-    color: red
+    background-color: red
   
   p.notice
-    color: green
+    background-color: green
     
   p.warning
-    color: brown    
+    background-color: brown    
     
     
 div#footer, div#sidebar

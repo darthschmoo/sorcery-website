@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604224607) do
+ActiveRecord::Schema.define(:version => 20120611161022) do
 
   create_table "authors", :force => true do |t|
     t.text     "name"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(:version => 20120604224607) do
     t.string   "book_link"
     t.text     "summary"
     t.text     "review"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "book_submissions", :force => true do |t|
+    t.string   "book_title"
+    t.string   "book_author"
+    t.string   "author_email"
+    t.string   "book_link"
+    t.string   "file"
+    t.text     "message"
+    t.string   "state",        :default => "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

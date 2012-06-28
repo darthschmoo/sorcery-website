@@ -1,0 +1,8 @@
+%h1 #{chunk.title}
+
+%div.cms_chunk
+  = markdown chunk.content
+  
+  -if logged_in?
+    %div.actions
+      = link_to "Edit content", edit_page_path( chunk )

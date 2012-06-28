@@ -1,0 +1,1 @@
+require File.join("..", "test_helper")

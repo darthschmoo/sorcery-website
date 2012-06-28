@@ -1,0 +1,15 @@
+%div.book_submission
+  %h2 #{book_submission.book_title}, by #{book_submission.book_author}
+
+  %p.book_link
+    = link_to book_submission.book_link, book_submission.book_link
+    
+  %pre.message
+    = book_submission.message
+    
+  %p.state #{book_submission.state}
+  
+  %p.created_at #{book_submission.created_at}  
+
+  %p
+    = link_to "[[DOWNLOAD FILE]]", download_book_submission_path( book_submission )

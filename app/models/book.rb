@@ -12,9 +12,6 @@ module BookCoverImageSupport
       name = hash + File.extname( file.original_filename )
       dest = File.join( COVER_FOLDER, name )
     
-      puts file.tempfile.to_path
-      puts dest
-    
       FileUtils.mv( file.tempfile.to_path, dest ) 
     
       path = File.join( COVER_PATH, name )

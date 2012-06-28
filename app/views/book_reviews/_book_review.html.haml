@@ -19,3 +19,5 @@
   %h3.review Review
   = markdown book_review.review
   
+  - if logged_in?
+    = link_to "Edit", edit_book_review_path( book_review )

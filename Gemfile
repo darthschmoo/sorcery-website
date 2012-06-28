@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.1.4'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -8,7 +8,8 @@ gem 'rails', '3.1.1'
 gem 'mysql2'
 
 gem 'sass-rails',   '~> 3.1.4'
-gem "compass", "~> 0.12.alpha.0"
+gem 'jquery-rails'   ##, '~> 3.1.3'
+gem 'compass', "~> 0.12.alpha.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,8 +20,7 @@ end
 
 gem 'therubyracer', '~> 0.9.9'
 gem 'authlogic', '>= 3.1'
-
-gem 'jquery-rails'
+ 
 gem 'will_paginate', '~> 3.0'
 
 

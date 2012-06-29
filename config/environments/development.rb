@@ -26,7 +26,7 @@ Sorcery::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  config.assets.debug = false
   
   # BCA for rails 3.2
   # Raise exception on mass assignment protection for Active Record models

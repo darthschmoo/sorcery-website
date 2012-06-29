@@ -1,3 +1,4 @@
+@import 'compass'
 
 =simple_but_pretty()
   width: 40%
@@ -10,6 +11,20 @@
   
   +simple_center()
   
+  
+=simple_but_pretty2()
+  +simple_but_pretty()
+  background:
+    color: darken( #ff8888, 25% )   /* comes from compass */
+      
 =simple_center()
   margin-left: auto
   margin-right: auto
+  
+  
+  
+  /* strength goes from 0.0 (invisible) to 1.0 (overwhelming)
+=reflective_vertical_gradient( $color, $strength : 0.15 )
+  background:
+    color: $color
+  +background-image( linear-gradient( color_stops( rgba(255,255,255,$strength) 5%, rgba(128,128,128,$strength) 20%, rgba(224,224,224,$strength) 45%, rgba(32,32,32,$strength) 50%, rgba(128,128,128,$strength) 85%, rgba(255,255,255,$strength) 100% ) ) )

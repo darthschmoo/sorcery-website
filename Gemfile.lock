@@ -173,7 +173,6 @@ DEPENDENCIES
   bundler
   capistrano (>= 2.9.0)
   coffee-rails (~> 3.2)
-  compass (= 0.12.2)
   compass-rails
   debugger
   eeepub
@@ -189,7 +188,6 @@ DEPENDENCIES
   pacecar
   rails (= 3.2.6)
   sass-rails (~> 3.2)
-  sprockets
   therubyracer (~> 0.9.9)
   turn
   twitter

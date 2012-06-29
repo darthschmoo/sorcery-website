@@ -1,4 +1,4 @@
-@import 'compass'
+@import compass
 
 =simple_but_pretty()
   width: 40%
@@ -16,6 +16,10 @@
   +simple_but_pretty()
   background:
     color: rgba( darken( #ff8888, 25% ), 0.5 )   /* comes from compass */
+    
+=simple_but_pretty3()
+  +simple_but_pretty()
+  
       
 =simple_center()
   margin-left: auto

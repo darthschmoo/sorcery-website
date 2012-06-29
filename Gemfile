@@ -1,6 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.4'
+gem 'rails', '= 3.2.6'
+ 
+group :assets do
+  gem 'sass-rails',   '~> 3.2'
+  gem 'coffee-rails', '~> 3.2'
+  gem 'uglifier',     '>= 1.0'
+end
+gem 'compass', '0.12.2'
+gem 'compass-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -9,18 +17,7 @@ gem 'mysql2'
 
 gem 'jquery-rails'   ##, '~> 3.1.3'
 gem 'sprockets'
-gem 'sass'
-gem 'sass-rails',   '~> 3.1.4'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-end
-
-gem 'coffee-rails', '~> 3.1.1'
-gem 'uglifier', '>= 1.0.3'
-gem 'compass', "0.13.alpha.0"
-gem 'compass-rails'
 
 
 gem 'therubyracer', '~> 0.9.9'

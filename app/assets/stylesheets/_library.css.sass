@@ -1,6 +1,6 @@
 /* colors
 
-@import "compass/css3/gradient"
+@import "compass"
 
 =debugger()
   background-color: red
@@ -102,20 +102,20 @@
   /* fallthrough for browsers that don't support CSS3 gradients */
   background:
     color: $color + $offset / 2
-  +linear-gradient( color-stops($color 15%, $color + $offset, $color 80%) )
+  linear-gradient( color-stops($color 15%, $color + $offset, $color 80%) )
   
   
 /* strength goes from 0.0 (invisible) to 1.0 (overwhelming)
 =reflective_vertical_gradient( $color, $strength : 0.15 )
   background:
     color: $color
-  +linear-gradient( color_stops( rgba(255,255,255,$strength) 5%, rgba(128,128,128,$strength) 20%, rgba(224,224,224,$strength) 45%, rgba(32,32,32,$strength) 50%, rgba(128,128,128,$strength) 85%, rgba(255,255,255,$strength) 100% ) )
+  +background-image( linear-gradient( color_stops( rgba(255,255,255,$strength) 5%, rgba(128,128,128,$strength) 20%, rgba(224,224,224,$strength) 45%, rgba(32,32,32,$strength) 50%, rgba(128,128,128,$strength) 85%, rgba(255,255,255,$strength) 100% ) ) )
 
 /* Compass (or somebody in the chain) has issues with the above.  Rewriting with pure rgb color stops.  Looks worse somehow.  $strength is ignored. */
 =reflective_vertical_gradient2( $color, $strength : 0.15 )
   background:
     color: $color
-  +linear-gradient( color_stops( lighten($color, 3%) 5%, $color 20%, lighten($color, 5%) 48%, darken($color, 4%) 50%, $color 85% ) )
+  +background-image( linear-gradient( color_stops( lighten($color, 3%) 5%, $color 20%, lighten($color, 5%) 48%, darken($color, 4%) 50%, $color 85% ) ) )
   
   
   

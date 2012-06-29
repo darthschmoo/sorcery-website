@@ -2,8 +2,7 @@
 %html
   %head
     %title Banned Sorcery
-    = stylesheet_link_tag    "application" 
-    = stylesheet_link_tag params[:controller] 
+    = stylesheet_link_tag "application" 
     = stylesheet_link_tag Rails.env 
     - logged_in? do 
       = stylesheet_link_tag "logged_in" 

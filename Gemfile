@@ -8,6 +8,7 @@ gem 'rails', '3.1.4'
 gem 'mysql2'
 
 gem 'jquery-rails'   ##, '~> 3.1.3'
+gem 'sprockets'
 gem 'sass'
 gem 'sass-rails',   '~> 3.1.4'
 

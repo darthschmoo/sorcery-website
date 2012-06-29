@@ -102,7 +102,7 @@
   /* fallthrough for browsers that don't support CSS3 gradients */
   background:
     color: $color + $offset / 2
-  linear-gradient( color-stops($color 15%, $color + $offset, $color 80%) )
+  +background-image( linear-gradient( color-stops($color 15%, $color + $offset, $color 80%) ) )
   
   
 /* strength goes from 0.0 (invisible) to 1.0 (overwhelming)

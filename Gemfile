@@ -44,9 +44,10 @@ group :test do
   gem 'factory_girl_rails', "~> 3.0"
   gem 'faker'
 
-	# To use debugger
-	gem 'debugger'
 end
+
+# To use debugger
+gem 'debugger'
 
 gem 'bundler'
 gem 'bluecloth'

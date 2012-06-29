@@ -32,6 +32,9 @@ class BookReviewsController < ApplicationController
     raise "You never wrote this!"
   end
   
+  def test
+    render layout: false
+  end
   
   protected
   def get_book_review

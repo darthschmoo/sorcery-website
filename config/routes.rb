@@ -20,12 +20,12 @@ Sorcery::Application.routes.draw do
     end
   end
   
+  match 'book_reviews/test' => 'book_reviews#test'
+
   resources :stories
   resources :pages 
   resources :books
-  resources :book_reviews do
-    match 'test' => 'book_reviews#test'
-  end
+  resources :book_reviews
   
   resources :book_submissions do
     member do

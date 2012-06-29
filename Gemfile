@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '= 3.2.6'
  
 group :assets do
+  gem 'compass', git: 'git://github.com/chriseppstein/compass', branch: 'master'
   gem 'compass-rails'
   gem 'sass-rails',   '~> 3.2'
   gem 'coffee-rails', '~> 3.2'

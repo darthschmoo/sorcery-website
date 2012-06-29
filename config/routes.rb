@@ -23,7 +23,9 @@ Sorcery::Application.routes.draw do
   resources :stories
   resources :pages 
   resources :books
-  resources :book_reviews 
+  resources :book_reviews do
+    match 'test' => 'book_reviews#test'
+  end
   
   resources :book_submissions do
     member do

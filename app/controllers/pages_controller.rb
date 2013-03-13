@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.directory_sorted
+    @tree = Page.tree
 
     standard_response @pages
   end

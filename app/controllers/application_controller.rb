@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
   def standard_update_record_response record, _params
     if record.update_attributes(_params)
       respond_to do |format|
-        format.html { redirect_to record, notice: 'Author was successfully updated.' }
+        format.html { redirect_to record, notice: '#{record.class.name} was successfully updated.' }
         format.json { head :ok }
       end
     else

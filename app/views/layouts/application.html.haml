@@ -3,7 +3,7 @@
   %head
     %title Banned Sorcery : #{ @page ? @page.title : params[:controller].humanize }
     = stylesheet_link_tag "application" 
-    = stylesheet_link_tag Rails.env 
+    = stylesheet_link_tag Rails.env
     - logged_in? do 
       = stylesheet_link_tag "logged_in" 
     

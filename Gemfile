@@ -62,3 +62,7 @@ gem 'pacecar'
 # required for publicity tweets
 gem 'twitter'
 gem 'oauth'
+
+
+# misc
+gem 'rubytree'

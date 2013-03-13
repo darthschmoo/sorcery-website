@@ -1,0 +1,26 @@
+%div.cms_dir_node
+  - if page_tree_node.page?
+    - page = page_tree_node.page
+    %div.cms_page_node
+      = (page_tree_node.root? ? "" : "/") +  page_tree_node.name
+
+      %div.title
+        Title:
+        = page.title
+        
+      %div.slug
+        Slug:
+        = link_to page.slug, page.slug
+        
+      %div.menu
+        = link_to 'Show', page
+        = link_to 'Edit', edit_page_path(page)
+        = link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete
+        = link_to 'New Child Page', new_page_path( page: {slug: page.child_slug } )
+  - else
+    = (page_tree_node.root? ? "" : "/") +  page_tree_node.name
+
+            
+        
+  - for child in page_tree_node.children
+    = render partial: "page_tree_node", object: child

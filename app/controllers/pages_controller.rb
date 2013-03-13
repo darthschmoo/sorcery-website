@@ -13,13 +13,14 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     if params[:slug]
-      @page = Page.find_by_slug( params[:slug] )
+      slug = /^\//.match( params[:slug] ) ? params[:slug] : "/" + params[:slug]
+      @page = Page.find_by_slug( slug )
       if @page.nil?
-        if params[:slug] == "/"
-          @page = create_default_root_page
-        elsif logged_in?
-          redirect_to new_page_path( page: { slug: params[:slug] } )
+        if logged_in?
+          redirect_to new_page_path( page: { slug: slug } )
           return false
+        elsif slug == "/"
+          @page = create_default_root_page
         else
           render template: "404", status: 404
           return false

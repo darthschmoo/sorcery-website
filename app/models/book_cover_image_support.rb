@@ -13,6 +13,7 @@ module BookCoverImageSupport
       dest = File.join( COVER_FOLDER, name )
     
       FileUtils.mv( file.tempfile.to_path, dest ) 
+      FileUtils.chmod( 0644, dest )
     
       path = File.join( COVER_PATH, name )
       super path

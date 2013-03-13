@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
   validates_uniqueness_of :slug
-  validates_format_of :slug, with: %r((/[a-z0-9_-]*)+), message: "Lower-case letters, numbers, dashes, and underscores only"
+  validates_format_of :slug, with: %r([/a-z0-9_-]+), message: "Lower-case letters, numbers, dashes, and underscores only. Slashes to create directory structure."
   
   # before_save do
   #   self.parent = Page.find_by_slug( self.parent_slug )

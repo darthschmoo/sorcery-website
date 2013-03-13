@@ -23,8 +23,16 @@ Sorcery::Application.routes.draw do
   match 'book_reviews/test' => 'book_reviews#test'
 
   resources :stories
+  
   resources :pages 
-  resources :books
+  
+  resources :books do
+    member do
+      get "attach_file"
+      put "file_attached"
+    end
+  end
+  
   resources :book_reviews
   
   resources :book_submissions do

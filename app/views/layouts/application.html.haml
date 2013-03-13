@@ -1,7 +1,7 @@
 !!!html
 %html
   %head
-    %title Banned Sorcery
+    %title Banned Sorcery : #{ @page ? @page.title : params[:controller].humanize }
     = stylesheet_link_tag "application" 
     = stylesheet_link_tag Rails.env 
     - logged_in? do 
@@ -12,16 +12,14 @@
     = csrf_meta_tags 
   
 
-  %body
+  %body{ class: "#{params[:controller]}" }
     = render partial: "/layouts/application_header" 
     = render partial: "/layouts/application_sidebar" 
   
     %div#content 
       = render partial: "/layouts/notices"
       
-      
       = yield 
-    
     
     = render partial: "/layouts/application_footer" 
     = render partial: "/layouts/boot_sequence"

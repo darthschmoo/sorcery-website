@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611161022) do
+ActiveRecord::Schema.define(:version => 20130206020329) do
 
   create_table "authors", :force => true do |t|
-    t.text     "name"
-    t.text     "short_bio"
+    t.string   "name"
+    t.string   "short_bio"
     t.text     "long_bio"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20120611161022) do
   create_table "books", :force => true do |t|
     t.string   "title"
     t.string   "teaser"
-    t.string   "image"
+    t.string   "cover_image"
     t.text     "summary"
     t.text     "how_to_buy"
     t.boolean  "published"
@@ -130,9 +130,19 @@ ActiveRecord::Schema.define(:version => 20120611161022) do
   create_table "tweet_quotes", :force => true do |t|
     t.string   "text"
     t.integer  "book_id"
-    t.datetime "last_tweeted_on", :default => '1977-01-01 00:00:00'
+    t.datetime "last_tweeted_on", :default => '1900-01-01 00:00:00'
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_files", :force => true do |t|
+    t.string   "file"
+    t.text     "notes"
+    t.integer  "attached_to_id"
+    t.string   "attached_to_type"
+    t.integer  "owner_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

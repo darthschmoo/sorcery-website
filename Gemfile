@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '= 3.2.6'
+gem 'rails', '= 3.2.11'
  
 group :assets do
   gem 'compass', git: 'git://github.com/chriseppstein/compass', branch: 'master'
@@ -48,6 +48,9 @@ end
 
 # To use debugger
 gem 'debugger'
+
+# File uploader
+gem 'carrierwave'
 
 gem 'bundler'
 gem 'bluecloth'

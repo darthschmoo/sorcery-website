@@ -1,0 +1,9 @@
+%h1 Attach file to <em>#{@book.title}</em> 
+
+= quick_form_for @book, :html => { multipart: true }, url: file_attached_book_path( @book ) do |f|
+  = fields_for @book_file do |bf|
+    = bf.file_field :file
+    = bf.quick_text_area :notes
+  
+  %div.actions
+    = f.submit

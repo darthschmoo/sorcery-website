@@ -4,7 +4,7 @@ log/*.log
 tmp/
 .sass-cache/
 Capfile
-config/app.yml
+config/app.*
 config/database.yml
 config/deploy.example.rb
 config/deploy.rb

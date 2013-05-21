@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206020329) do
+ActiveRecord::Schema.define(:version => 20130430174836) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20130206020329) do
     t.text     "review"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "visibility",  :default => "owner"
+    t.integer  "author_id"
   end
 
   create_table "book_submissions", :force => true do |t|
@@ -68,6 +70,17 @@ ActiveRecord::Schema.define(:version => 20130206020329) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "project_path"
+  end
+
+  create_table "ebook_signatures", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.string   "formats"
+    t.integer  "book_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "log_requests", :force => true do |t|
@@ -86,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20130206020329) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "visibility", :default => "owner"
+    t.integer  "author_id"
   end
 
   create_table "publicity_review_submissions", :force => true do |t|
@@ -120,11 +135,11 @@ ActiveRecord::Schema.define(:version => 20130206020329) do
     t.string   "teaser"
     t.text     "body"
     t.string   "status"
-    t.boolean  "published",    :default => false
     t.text     "author_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "author_id"
+    t.string   "visibility",   :default => "owner"
   end
 
   create_table "tweet_quotes", :force => true do |t|
@@ -141,8 +156,9 @@ ActiveRecord::Schema.define(:version => 20130206020329) do
     t.integer  "attached_to_id"
     t.string   "attached_to_type"
     t.integer  "owner_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "visibility",       :default => "owner"
   end
 
 end

@@ -1,3 +1,4 @@
+puts "boot.rb"
 require 'rubygems'
 
 raise "This program requires Ruby 1.9" unless RUBY_VERSION =~ /1\.9/
@@ -6,3 +7,4 @@ raise "This program requires Ruby 1.9" unless RUBY_VERSION =~ /1\.9/
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+puts "done with boot.rb"

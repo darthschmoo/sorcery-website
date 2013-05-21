@@ -11,7 +11,7 @@ class MobiRecipe < FormatRecipe
   
   def cook
     puts `ebook-convert #{@story.filename_and_absolute_path(:epub)} #{@story.filename_and_absolute_path(:mobi)} \
-      --extra-css #{File.join( Rails.root, "app", "assets", "stylesheets", "epub.css")} \
+      --extra-css #{Rails.root.join( "app", "assets", "stylesheets", "epub.css" ) } \
       --remove-first-image`
     return $?.success?
   end

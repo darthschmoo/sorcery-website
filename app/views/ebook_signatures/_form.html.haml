@@ -1,0 +1,6 @@
+= fields_for @ebook_signature do |f|
+  = error_messages @ebook_signature
+
+  = f.quick_text_field :name, explanation: "The name of the grateful recipient."
+  = f.quick_text_field :email, explanation: "User's email."
+  = f.quick_text_area  :message, explanation: "Say what must be said."

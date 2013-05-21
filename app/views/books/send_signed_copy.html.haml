@@ -1,0 +1,17 @@
+%h1 Done with signing
+
+- if @files.empty?
+  %p.signing_error No files were sent
+- else
+  -for file in @files
+    %p.ok Sent #{file}
+
+- if @errors.empty?
+  %p.ok No errors
+  
+- else
+  %h2 Errors encountered
+  
+  - for error in @errors
+    %p.signing_error #{error}
+      

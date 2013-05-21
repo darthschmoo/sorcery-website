@@ -1,0 +1,18 @@
+%h1 Send a signed copy of <em>#{@book.title}</em>
+
+= quick_form_for @ebook_signature, url: send_signed_copy_book_path(@book) do |f|
+  = render( 'ebook_signatures/form' )
+  %div
+    = check_box_tag( "book_format[pdf]" )
+    PDF
+
+  %div
+    = check_box_tag( "book_format[mobi]" )
+    Send Kindle (.mobi)
+  
+  %div
+    = check_box_tag( "book_format[epub]" )
+    Send eBook (.epub)
+    
+  %div.actions
+    = f.submit("send ebook")

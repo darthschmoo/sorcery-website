@@ -30,6 +30,8 @@ Sorcery::Application.routes.draw do
     member do
       get "attach_file"
       put "file_attached"
+      get "sign"
+      post "send_signed_copy"
     end
   end
   

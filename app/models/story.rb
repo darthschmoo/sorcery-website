@@ -2,8 +2,8 @@ require 'bogus_request'
 
 class Story < ActiveRecord::Base
   belongs_to :author, dependent: :destroy
-  scope :published, where( "published = TRUE")
-  scope :unpublished, where( "published = FALSE")
+  scope :published, where( "visibility = 'public'")
+  scope :unpublished, where( "visibility != 'public'")
   scope :recent, lambda { |num_days = 30| where("created_at > ?", num_days.days.ago ) }
   
   after_save :delete_file_cache
@@ -23,6 +23,16 @@ class Story < ActiveRecord::Base
   
   SUPPORTED_FORMATS = self.supported_formats
     
+  def published=( visibility )
+    self.visibility = visibility ? "public" : "owner"
+  end
+  
+  def published
+    self.visibility == "public"
+  end
+  
+  alias :published? :published
+  
   def word_count
     body ? body.length / 6 : 0
   end
@@ -40,26 +50,20 @@ class Story < ActiveRecord::Base
   end
   
   def self.stories_directory
-    Sorcery.config.story.filepath
+    Sorcery.config.story.filepath.fwf_filepath
   end
   
   def filename_and_path( format )
-    File.join( stories_directory, filename( format ) )
+    stories_directory.join( filename( format ) )
   end
   
   def filename_and_absolute_path( format )
-    File.join( Rails.root, filename_and_path( format ) )
+    Rails.root.join( filename_and_path( format ) )
   end
   
   def url_for( format )
-    File.join( "/", stories_directory.gsub("public/",""), filename( format ) )
+    "/".fwf_filepath.join( stories_directory.gsub("public/",""), filename( format ) )
   end
-
-  
-
-  
-
-
 
   def delete_file_cache
     for format in SUPPORTED_FORMATS

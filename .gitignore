@@ -8,6 +8,7 @@ config/app.yml
 config/database.yml
 config/deploy.example.rb
 config/deploy.rb
+config/initializers/secret_token.rb
 lib/generators
 public/assets/*
 public/images/
@@ -23,3 +24,4 @@ code_cache2.rb
 markitup_latest/
 shared/
 public/downloads
+epubforge_projects/

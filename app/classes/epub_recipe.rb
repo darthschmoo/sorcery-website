@@ -19,8 +19,8 @@ class EpubRecipe < FormatRecipe
       
       
       story_file = story.filename_and_absolute_path( :html )
-      stylesheet = File.join( Rails.root, "app", "assets", "stylesheets", "epub.css")
-      horizontal_break = File.join( Rails.root, "app", "assets", "images", "hr_swirl.png")
+      stylesheet = Rails.root.join( "app", "assets", "stylesheets", "epub.css" )
+      horizontal_break = Rails.root.join( "app", "assets", "images", "hr_swirl.png" )
       
       
       # canonical URL for this story

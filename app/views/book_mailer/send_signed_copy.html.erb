@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
-    <h1>Welcome to example.com, <%= @user.name %></h1>
-    <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.login %>.<br/>
-    </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
-  </body>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Attached: Your signed copy of <em><%= @book.title %></em></h1>
+    <p><%= @ebook_signature.name %>,</p>
+
+    <p>Attached, please find your signed electronic copy of <em><%= @book.title %></em>, 
+      lovingly hand-crafted by the tiny, hyperintelligent squirrels that run my web server,
+      and hand-stitched together by our dedicated, hard-working algorithms.  I hope it brings 
+      you many hours of enjoyment, and inspires you to be your very best.</p>
+      
+    <p>Good day and good luck,</p>
+
+    <p><%= @book.author.name %>,<br/>
+      Author and Proprietor of <a href="http://bannedsorcery.com">bannedsorcery.com</a></p>
+  </body>
 </html>

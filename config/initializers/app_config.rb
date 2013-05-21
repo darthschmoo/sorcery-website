@@ -1,14 +1,12 @@
-m = Module.new do
-  def config
-    return @sorcery_config
-  end
+puts __FILE__
 
-  def initialize_sorcery_config
-    config_file = File.join( Rails.root, "config", "app.yml" )
-    @sorcery_config = Configr::Configr.new( File.read( config_file ) )
-  end
+Sorcery.install_fwc_config_from_file( Rails.root.join( "config", "app.rb" ) )
+
+
+# Tweak a few of the settings
+Sorcery.config.book.epubforge_projects_dir.promote_configuration(Rails.env)
+
+for setting in [:host, :protocol, :port]
+  Sorcery.config.request[setting].promote_configuration( Rails.env )
 end
 
-Sorcery.extend m
-Sorcery.initialize_sorcery_config
-  

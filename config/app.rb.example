@@ -1,0 +1,112 @@
+FunWith::Configurations::Config.new do
+  social_media do
+    sources do
+      gplus do
+        name "Google Plus"
+        url  "https://plus.google.com"
+        icon "/assets/social/gplus_icon.48x48.png"
+        icon_lg "/assets/social/gplus_icon.128x128.png"
+      end
+      
+      twitter do
+        name     "Twitter"
+        url      "https://twitter.com"
+        icon     "/assets/social/twitter_icon.48x48.png"
+        icon_lg  "/assets/social/twitter_icon.128x128.png"
+      end
+      
+      fb do
+        name    "Facebook"
+        url     "https://facebook.com"
+        icon    "/assets/social/facebook_icon.48x48.png"
+        icon_lg "/assets/social/facebook_icon.128x128.png"
+      end
+    end
+  end
+  
+  story do
+    filepath    "public/downloads/stories"   # path must be under Rails.root, and the app must have write access.
+    formats do
+      # used htmldoc initially, but wkhtmltopdf seems to make prettier files
+      pdf do
+        status  "enabled"
+        mime    "application/pdf"
+      end
+      
+      # uses eeepub gem
+      epub do
+        status "enabled"
+        mime   "application/epub+zip"
+      end
+      
+      # Calibre must be installed.  Uses the ebook-convert command to convert from epub  
+      mobi do
+        status "enabled"
+        mime   "application/x-mobipocket-ebook"
+      end
+      
+      html do
+        status "enabled"
+        mime   "text/html"
+      end
+      
+      markdown do
+        status "enabled"
+        mime   "text/x-markdown"
+      end
+    end
+    
+    copyright_notice """This work is distributed under the 
+                       [Creative Commons, Non-Commercial, No Derivatives 3.0 License](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+                       For more stuff and nonsense, visit [http://bannedsorcery.com](bannedsorcery.com)."""
+  end
+  
+  request do
+    host do
+      development "localhost"
+      test        "localhost"
+      production  "bannedsorcery.com"
+    end
+    
+    protocol do
+      development "http"
+      test        "http"
+      production  "http"
+    end
+    
+    port do
+      development "3000"
+      test        "3000"
+      port        "80"
+    end
+  end
+  
+  twitter do
+    oauth do
+      consumer_key       "VgID4bHF7zteZzPBn0tgZ"
+      consumer_secret    "ZctbY2BAMjF2NzjdPRZdazxu6Gs0PaXVpf4yZmDMv"
+      token              "dA005AN21oMr0-527BJoUnR90kcV2xeQ2VUxfbg10O98cpT6aM"
+      secret             "stc8cC39vWmbaoaYeeYHxPOWgl0APecSYfts4T6iW" 
+      
+    end
+  end
+    
+  # send emails through gmail    
+  smtp do
+    address        "smtp.gmail.com"
+    port           "587"
+    domain         "bannedsorcery.com"
+    user_name      "keeputahweird"
+    password       "<not_gonna_tell_you>"
+    authentication "plain"
+    enable_starttls_auto "true"
+  end
+  
+  book do
+    epubforge_projects_dir do
+      development "~/rails/sorcery/epubforge_projects"
+      test        "~/rails/sorcery/test/epubforge_projects/"
+      production  "/var/www/sorcery/shared/epubforge/projects"
+    end
+  end
+end

@@ -40,7 +40,7 @@ class BookSubmissionsController < ApplicationController
   end
   
   def download
-    file = File.join( BookSubmission::SUBMISSIONS_FOLDER, @book_submission.file )
+    file = BookSubmission::SUBMISSIONS_FOLDER.join( @book_submission.file )
     
     if File.exist?( file )
       send_file file, filename: @book_submission.file, type: @book_submission.mimetype

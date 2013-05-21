@@ -1,3 +1,5 @@
-require 'core_extensions/kernel'
-require 'core_extensions/object'
-require 'core_extensions/string'
+require_relative 'core_extensions/array'
+require_relative 'core_extensions/exception'
+require_relative 'core_extensions/kernel'
+require_relative 'core_extensions/object'
+require_relative 'core_extensions/string'

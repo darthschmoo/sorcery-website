@@ -7,6 +7,7 @@
   = f.quick_check_box "Publish?", :published, explanation: "Should the story be visible to readers?"
   = f.quick_file_field :image, explanation: "Cover art for this book. JPG/PNG/GIF acceptable. Ideal width: 600px."
   = f.quick_text_area :how_to_buy
+  = f.quick_text_field :project_path, explanation: "Location on the server for the epubforge project directory of this book."
 
   %div.actions
     = f.submit

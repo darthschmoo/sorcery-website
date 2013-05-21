@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 # This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
 
-raise "You must be please running the ruby of 1.9 many blessings." unless ENV['rvm_ruby_string'] =~ /1\.9/
+
+raise "You must be please running the ruby of 1.9 many blessings." unless RUBY_VERSION =~ /1\.9/
   
 APP_PATH = File.expand_path('../../config/application',  __FILE__)
 require File.expand_path('../../config/boot',  __FILE__)

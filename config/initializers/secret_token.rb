@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Sorcery::Application.config.secret_token = '41081e9871b02d507aa314eb29eaa703b0404c85ee9ad76f774330344c79d50269677ad76a5b678b11e812c3253eaf853533376fb50bd86faee5e57d553684cc'
+Sorcery::Application.config.secret_token = "c6be9d9ec785be98072f9dc477d3271329435ade5289bff15bf95c52f1e3a699c45a03b386d1a86597a31bfa25eb091edd8d2f78481e495e3b0a65dd04f745c2"

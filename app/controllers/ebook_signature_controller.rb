@@ -1,0 +1,2 @@
+class EbookSignatureController < ApplicationController
+end

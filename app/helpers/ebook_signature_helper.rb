@@ -1,0 +1,2 @@
+module EbookSignatureHelper
+end

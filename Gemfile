@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '= 3.2.11'
+gem 'webrick', '~> 1.3.1'
  
 group :assets do
   gem 'compass', git: 'git://github.com/chriseppstein/compass', branch: 'master'
@@ -57,6 +58,7 @@ gem 'bluecloth'
 gem 'liquid'
 gem 'haml'
 gem 'eeepub'
+gem 'epubforge'
 gem 'pacecar'
 
 # required for publicity tweets

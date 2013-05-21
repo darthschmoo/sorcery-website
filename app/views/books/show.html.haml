@@ -12,4 +12,5 @@
     
   %div.actions
     = link_to "Edit", edit_book_path(@book)
-
+    - if @book.project_path
+      = link_to "Send signed copy", sign_book_path(@book)

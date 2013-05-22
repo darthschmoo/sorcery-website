@@ -1,5 +1,3 @@
-puts __FILE__
-
 Sorcery.install_fwc_config_from_file( Rails.root.join( "config", "app.rb" ) )
 
 

@@ -12,8 +12,8 @@ class Story < ActiveRecord::Base
   def self.supported_formats
     formats = []
     
-    Sorcery.config.story.formats.keys.each do |format|
-      if Sorcery.config.story.formats[format].status == "enabled"
+    for format, config in Sorcery.config.story.formats
+      if config.status == "enabled"
         formats << format.to_s
       end
     end

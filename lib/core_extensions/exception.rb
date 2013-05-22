@@ -5,6 +5,6 @@ class Exception
       snippet += "\t#{line}\n"
     end
     snippet += "</pre>"
-    snippet.html_safe!
+    snippet.html_safe
   end
 end

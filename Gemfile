@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '= 3.2.11'
+gem 'rails', '= 3.2.13'
 gem 'webrick', '~> 1.3.1'
  
 group :assets do
@@ -40,7 +40,7 @@ gem 'capistrano', ">= 2.9.0"
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'minitest'
+  # gem 'minitest'
   gem 'factory_girl', "~> 3.0"
   gem 'factory_girl_rails', "~> 3.0"
   gem 'faker'

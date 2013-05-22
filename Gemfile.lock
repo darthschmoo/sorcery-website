@@ -74,7 +74,7 @@ GEM
     eeepub (0.8.1)
       builder
       rubyzip
-    epubforge (0.0.6)
+    epubforge (0.0.7)
       builder
       fun_with_configurations
       fun_with_files
@@ -212,7 +212,7 @@ DEPENDENCIES
   compass-rails
   debugger
   eeepub
-  epubforge
+  epubforge (= 0.0.7)
   factory_girl (~> 3.0)
   factory_girl_rails (~> 3.0)
   faker

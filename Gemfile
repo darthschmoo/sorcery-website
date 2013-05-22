@@ -58,7 +58,7 @@ gem 'bluecloth'
 gem 'liquid'
 gem 'haml'
 gem 'eeepub'
-gem 'epubforge'
+gem 'epubforge', "0.0.7"
 gem 'pacecar'
 
 # required for publicity tweets

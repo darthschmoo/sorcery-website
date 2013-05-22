@@ -63,6 +63,35 @@ class BooksController < ApplicationController
       FileUtils.rm( file ) if file.exist?
     end
     
+    debugger
+    
+    sig_html = <<-EOS
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>#{@book.title}, by #{@book.author.name}</title>
+  <link href="../Styles/style.css" media="screen" rel="stylesheet" type="text/css" />  
+</head>
+
+<body id="sig">    
+  <p class="name">#{@ebook_signature.name},</p>
+  
+  <div class="message">
+    #{ ApplicationHelper.markdown( @ebook_signature.message ) }
+  </div>
+  
+  <div class="sig">
+    <img style="float:right" src="../Images/bryce.png" alt="Bryce Anderson signed this"/>
+  </div>
+</body>
+</html>
+EOS
+
+    @book.absolute_project_path.join( "book", "sig.xhtml" ).write( sig_html )
+    
     @should_pdf  = params[:book_format][:pdf]  == "1" 
     @should_mobi = params[:book_format][:mobi] == "1"
     @should_epub = params[:book_format][:epub] == "1"
@@ -71,8 +100,9 @@ class BooksController < ApplicationController
     @errors = []
     
     [ ["forge",  :epub, @should_epub], 
-      ["mobify", :mobi, @should_mobi], 
-      ["pdfify", :pdf,  @should_pdf ] ].each do |forge_command, format, should_be_done|
+      ["mobify", :mobi, @should_mobi]    #, 
+      # ["pdfify", :pdf,  @should_pdf ] 
+      ].each do |forge_command, format, should_be_done|
       if should_be_done
         handle_errors do
           rundesc = EpubForge::Action::Runner.new.exec( forge_command, @book.absolute_project_path )
@@ -87,6 +117,7 @@ class BooksController < ApplicationController
     
     unless @files.empty?
       handle_errors do
+        puts "Sending to gmail"
         response = BookMailer.send_signed_copy( @book, @files, @ebook_signature ).deliver!
       end
     end

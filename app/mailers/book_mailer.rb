@@ -1,4 +1,4 @@
-class BookMailer < GMailer
+class BookMailer < ActionMailer::Base
   def send_signed_copy( book, book_files, ebook_signature, opts = {} )
     @book = book
     @ebook_signature = ebook_signature

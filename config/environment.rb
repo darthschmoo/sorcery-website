@@ -11,3 +11,5 @@ Sorcery::Application.initialize!
 
 Sorcery::Application.config.action_mailer.delivery_method = :smtp
 Sorcery::Application.config.action_mailer.smtp_settings = Sorcery.config.smtp.to_hash
+BookMailer.smtp_settings = Sorcery.config.smtp.to_hash      # Honestly, no idea why this should be necessary.
+ 

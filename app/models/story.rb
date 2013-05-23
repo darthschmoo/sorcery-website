@@ -62,7 +62,7 @@ class Story < ActiveRecord::Base
   end
   
   def url_for( format )
-    "/".fwf_filepath.join( stories_directory.gsub("public/",""), filename( format ) )
+    "/".fwf_filepath.join( stories_directory.gsub("public/",""), filename( format ) ).to_s
   end
 
   def delete_file_cache

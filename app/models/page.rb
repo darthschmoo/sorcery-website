@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
   validates_uniqueness_of :slug
-  validates_format_of :slug, with: %r(^(/[a-z0-9_-]+)+$), message: "Leading slash, followed by Lower-case letters, numbers, dashes, and underscores only. More slashes to create subdirectories."
+  validates_format_of :slug, with: %r(^/([/a-z0-9_-]+)*$), message: "Leading slash, followed by Lower-case letters, numbers, dashes, and underscores only. More slashes to create subdirectories."
   
   # before_save do
   #   self.parent = Page.find_by_slug( self.parent_slug )

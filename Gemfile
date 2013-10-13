@@ -47,8 +47,10 @@ group :test do
 
 end
 
-# To use debugger
-gem 'debugger'
+group :development
+  # To use debugger
+  gem 'debugger'
+end
 
 # File uploader
 gem 'carrierwave'

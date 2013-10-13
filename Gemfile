@@ -47,7 +47,7 @@ group :test do
 
 end
 
-group :development
+group :development do
   # To use debugger
   gem 'debugger'
 end

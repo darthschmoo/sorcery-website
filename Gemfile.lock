@@ -50,6 +50,13 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
+    capistrano-bundler (1.0.0)
+      capistrano (>= 3.0.0.pre)
+    capistrano-rails (1.1.0)
+      capistrano (>= 3.0.0)
+      capistrano-bundler (>= 1.0.0)
+    capistrano-rvm (0.0.3)
+      capistrano
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -71,9 +78,6 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
-    eeepub (0.8.1)
-      builder
-      rubyzip
     epubforge (0.0.9)
       builder
       fun_with_configurations
@@ -209,13 +213,15 @@ DEPENDENCIES
   authlogic (>= 3.1)
   bluecloth
   bundler
-  capistrano (>= 2.9.0)
+  capistrano (~> 3.0)
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
   carrierwave
   coffee-rails (~> 3.2)
   compass!
   compass-rails
   debugger
-  eeepub
   epubforge (= 0.0.9)
   factory_girl (~> 3.0)
   factory_girl_rails (~> 3.0)
@@ -228,6 +234,7 @@ DEPENDENCIES
   pacecar
   rails (= 3.2.13)
   rubytree
+  rubyzip
   sass-rails (~> 3.2)
   therubyracer (~> 0.9.9)
   turn

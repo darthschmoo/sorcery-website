@@ -34,8 +34,10 @@ gem 'will_paginate', '~> 3.0'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', ">= 2.9.0"
-
+gem 'capistrano', '~> 3.0', require: false, group: :development
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rvm'
 
 group :test do
   # Pretty printed test output
@@ -50,6 +52,8 @@ end
 # To use debugger
 gem 'debugger'
 
+gem 'rubyzip'
+
 # File uploader
 gem 'carrierwave'
 
@@ -57,7 +61,7 @@ gem 'bundler'
 gem 'bluecloth'
 gem 'liquid'
 gem 'haml'
-gem 'eeepub'
+# gem 'eeepub'
 gem 'epubforge', "0.0.9"
 gem 'pacecar'
 

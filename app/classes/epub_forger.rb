@@ -1,5 +1,5 @@
 # hold off on building this for a while.  May be overkill.
-require 'zip/zip'
+require 'zip'
 
 module EpubForger
   class Assets

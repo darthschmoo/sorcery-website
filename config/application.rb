@@ -48,3 +48,5 @@ module Sorcery
     config.assets.version = '1.0'
   end
 end
+
+FunWith::Files::RootPath.rootify(Sorcery, __FILE__.fwf_filepath.dirname.up)

@@ -1,8 +1,13 @@
 require 'fileutils'
 
 module BookCoverImageSupport
-  COVER_FOLDER = Rails.root.join( "public", "assets", "covers" )
-  COVER_PATH   = "/".fwf_filepath.join( "assets", "covers" )    # probably shouldn't be in the model.
+  def cover_folder
+    Sorcery.config.book_review.cover_folder
+  end
+  
+  def cover_path
+    Sorcery.config.book_review.cover_path
+  end
   
   def cover_image=( file )
     if file.is_a?(String)
@@ -10,12 +15,12 @@ module BookCoverImageSupport
     else
       hash = Digest::MD5.hexdigest( file.tempfile.read )
       name = hash + File.extname( file.original_filename )
-      dest = COVER_FOLDER.join( name )
+      dest = cover_folder.join( name ).to_s
     
       FileUtils.mv( file.tempfile.to_path, dest ) 
       FileUtils.chmod( 0644, dest )
     
-      path = COVER_PATH.join( name )
+      path = cover_path.join( name )
       super path
     end
   end  

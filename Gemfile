@@ -11,18 +11,53 @@ group :assets do
   gem 'uglifier',     '>= 1.0'
 end
 
+group :development do
+  # Deploy with Capistrano
+  gem 'capistrano', '~> 3.0', require: false, group: :development
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+
+  # To use debugger
+  gem 'debugger'
+end
+
+
+
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+  # gem 'minitest'
+  gem 'factory_girl', "~> 3.0"
+  gem 'factory_girl_rails', "~> 3.0"
+  gem 'faker'
+
+  # To use debugger
+  gem 'debugger'
+
+
+end
+
+group :production do
+  gem 'mysql2'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
 
 gem 'jquery-rails'   ##, '~> 3.1.3'
 
 
 
-gem 'therubyracer', '~> 0.9.9'
+# Do you remember why therubyracer was initially tagged as needing version  ~> 0.9.9 ? 
+# Do you remember why we asked for it in the first place?
+# Memory is fleeting, and the purposes of our past selves hold no meaning to us.
+# Goodbye, therubyracer.  My memory has failed you.
+# gem 'therubyracer', '~> 0.9.9'
+
 gem 'authlogic', '>= 3.1'
+
  
 gem 'will_paginate', '~> 3.0'
 
@@ -33,24 +68,6 @@ gem 'will_paginate', '~> 3.0'
 # Use unicorn as the web server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-gem 'capistrano', '~> 3.0', require: false, group: :development
-gem 'capistrano-rails'
-gem 'capistrano-bundler'
-gem 'capistrano-rvm'
-
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-  # gem 'minitest'
-  gem 'factory_girl', "~> 3.0"
-  gem 'factory_girl_rails', "~> 3.0"
-  gem 'faker'
-
-end
-
-# To use debugger
-gem 'debugger'
 
 gem 'rubyzip'
 
@@ -62,7 +79,7 @@ gem 'bluecloth'
 gem 'liquid'
 gem 'haml'
 # gem 'eeepub'
-gem 'epubforge', "0.0.9"
+gem 'epubforge', "~>0.0", ">= 0.0.11"
 gem 'pacecar'
 
 # required for publicity tweets

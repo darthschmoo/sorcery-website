@@ -1,7 +1,8 @@
 %div.book_review{ id: html_id(book_review) }
-  %h2.book_title 
-    %em #{book_review.book_title}, 
-    by #{book_review.book_author}
+  %h2.book_title
+    = link_to book_review_path( book_review ) do
+      %em #{book_review.book_title}, 
+      by #{book_review.book_author}
   
   - unless book_review.cover_image.blank?
     %div.cover_image 

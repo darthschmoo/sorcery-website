@@ -1,4 +1,4 @@
-Sorcery.install_fwc_config_from_file( Rails.root.join( "config", "app.rb" ) )
+Sorcery.install_fwc_config_from_file( Sorcery.root( "config", "app.rb" ) )
 
 
 # Tweak a few of the settings

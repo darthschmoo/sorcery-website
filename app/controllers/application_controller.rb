@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   include AuthlogicAccessMethods
   
   protect_from_forgery
-  before_filter :log_request
+  # before_filter :log_request
+  before_filter :select_author
+  
 
   def must_be_logged_in
     unless logged_in?
@@ -109,5 +111,8 @@ class ApplicationController < ActionController::Base
                      } )
   end
   
-  
+  protected
+  def select_author
+    @current_author = Author.first
+  end
 end

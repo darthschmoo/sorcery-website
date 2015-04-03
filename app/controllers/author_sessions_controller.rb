@@ -1,6 +1,7 @@
 class AuthorSessionsController < ApplicationController
-  before_filter :require_no_author, only: [:new, :create]
-  before_filter :require_author, only: :destroy
+  before_filter :require_no_author_session, only: [:new, :create]
+  # before_filter :require_author, only: :destroy
+  # before_filter :require_author_session, only: :destroy
   
   def new
     @author_session = AuthorSession.new
@@ -17,8 +18,13 @@ class AuthorSessionsController < ApplicationController
   end
   
   def destroy
-    current_author_session.destroy
-    flash[:notice] = "Logout successful!"
+    if current_author_session
+      current_author_session.destroy
+      flash[:notice] = "Logout successful!"
+    else
+      flash[:notice] = "You weren't logged in when you tried to log out."
+    end
+    
     redirect_back_or_default "/login"
   end
 end

@@ -6,7 +6,8 @@
     = stylesheet_link_tag Rails.env
     - logged_in? do 
       = stylesheet_link_tag "logged_in" 
-    
+  
+    = stylesheet_link_tag 
     = javascript_include_tag "application"
     = javascript_include_tag params[:controller] 
     = csrf_meta_tags 
@@ -14,8 +15,8 @@
 
   %body{ class: "#{params[:controller]}" }
     = render partial: "/layouts/application_header" 
-    = render partial: "/layouts/application_sidebar" 
-  
+    = render partial: "/layouts/application_sidebar"
+    
     %div#content 
       = render partial: "/layouts/notices"
       

@@ -1,4 +1,13 @@
 Sorcery::Application.routes.draw do
+  resources :site_theme_selections
+
+
+  resources :site_theme_assets
+
+
+  resources :site_themes
+
+
   namespace :publicity do 
     resources :reviewers do
       collection do

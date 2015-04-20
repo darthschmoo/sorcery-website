@@ -1,0 +1,3 @@
+class SiteThemeAssetsController < ApplicationController
+  
+end

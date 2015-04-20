@@ -1,0 +1,2 @@
+class SiteThemesController < ApplicationController
+end

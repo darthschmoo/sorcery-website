@@ -1,0 +1,22 @@
+2015-04-03: Restarting development on bannedsorcery Rails code
+==============================================================
+
+Goals
+-----
+
+1. Eliminate all code related to translating stories into other file formats?
+    * Pros:
+        * simplifies code substantially.
+        * most of the functionality duplicates epubforge (and badly)
+        * simple workaround for all that functionality loss?  just make an 
+          up-to-date ebook available with your stories.
+        * so much of it only kinda worked anyhow.
+    * Cons:
+        * if the site goes multiplayer, it would be nice to have.
+2. Upgrade to latest Rails and Ruby 2.2
+    * Might require getting all my libraries into shape for Ruby 2.x.  Which is a good thing to do anyhow.
+3. Get "mail out ebooks" working correctly.  If I'm reading this right, 
+   my gmail password has changed and I'm using 2FactorAuth, so it probably 
+   doesn't work anymore.
+    * https://developers.google.com/gmail/oauth_overview
+4. Expand and prettify test suite.  Get shoulda tests working.

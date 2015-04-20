@@ -1,0 +1,24 @@
+= quick_form_for @site_theme do |f|
+  = error_messages @site_theme
+
+
+
+
+
+  t.string :name
+  t.text :description
+  t.string :screenshot
+
+
+  = f.quick_text_field :name, explanation: "Identifying stub"
+  = f.quick_text_area :description
+  = f.quick_file_field :screenshot
+  
+  %div.actions
+    = f.submit
+  
+- unless @site_theme.new_record?
+  
+  %div.actions
+    = link_to "View", book_path( @book )
+

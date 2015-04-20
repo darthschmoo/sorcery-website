@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430174836) do
+ActiveRecord::Schema.define(:version => 20131128172326) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -120,6 +120,32 @@ ActiveRecord::Schema.define(:version => 20130430174836) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "site_theme_assets", :force => true do |t|
+    t.integer  "site_theme_id"
+    t.string   "type"
+    t.string   "key"
+    t.string   "file"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "site_theme_selections", :force => true do |t|
+    t.integer  "site_theme_id"
+    t.integer  "author_id"
+    t.boolean  "active"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "site_themes", :force => true do |t|
+    t.integer  "author_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "screenshot"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "social_media_links", :force => true do |t|

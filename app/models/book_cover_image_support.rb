@@ -20,7 +20,7 @@ module BookCoverImageSupport
       FileUtils.mv( file.tempfile.to_path, dest ) 
       FileUtils.chmod( 0644, dest )
     
-      path = cover_path.join( name )
+      path = cover_path + "/#{name}"
       super path
     end
   end  

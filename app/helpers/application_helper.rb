@@ -41,7 +41,14 @@ module ApplicationHelper
     end
     
     out << "\n\n"
-    out.html_safe
+    out
+  rescue Exception => e
+    out << "\n#{e.class} : #{e.message}\n"
+    for line in e.backtrace
+      out << "\n     #{line}"
+    end
+    
+    out
   end
 end
 

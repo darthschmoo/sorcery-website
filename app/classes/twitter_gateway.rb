@@ -2,7 +2,7 @@
 # getting the oauth token in the first place:   http://obi-akubue.org/?p=479
 module TwitterGateway  
   def self.setup_gateway
-    return if @gw_set_up
+    return if @gw_set_up || @gw_set_up == false
     
     Twitter.configure do |config|
       oauth = Sorcery.config.twitter.oauth
@@ -13,12 +13,17 @@ module TwitterGateway
     end
     
     @gw_set_up = true
+  rescue Exception => e
+    Rails.logger.warn "Twitter gateway not set up.  No tweets will be sent."
+    @gw_set_up = false
   end
 
   
   setup_gateway
 
   def self.write( tweet )
-    response = Twitter.update( tweet )
+    if @gw_set_up
+      response = Twitter.update( tweet )
+    end
   end
 end

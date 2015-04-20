@@ -86,8 +86,8 @@ gem 'haml'
 gem 'pacecar'
 
 # required for publicity tweets
-gem 'twitter'
-gem 'oauth'
+# gem 'twitter'
+# gem 'oauth'
 
 
 # misc

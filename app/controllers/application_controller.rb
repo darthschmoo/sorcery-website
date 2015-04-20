@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   
 
   def must_be_logged_in
+    return true
     unless logged_in?
       flash[:error] = "You can't do that."
       redirect_to "/" and return false

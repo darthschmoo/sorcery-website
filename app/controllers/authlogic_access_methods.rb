@@ -10,7 +10,6 @@ module AuthlogicAccessMethods
   end
   
   def require_author
-    debugger
     if current_author
       return true
     else
@@ -22,7 +21,6 @@ module AuthlogicAccessMethods
   end
 
   def require_no_author
-    debugger
     if current_author
       store_location
       flash[:notice] = "You must &&& be logged out to access this page"
@@ -32,7 +30,6 @@ module AuthlogicAccessMethods
   end
   
   def require_author_session
-    debugger
     if current_author_session.nil?
       flash[:notice] = "You must be logged in."
       redirect_back_or_default

@@ -64,7 +64,6 @@ module CustomAssertions
     if @response.error? || @response.client_error?
       puts @response.body
       puts "Flash:" + @response.flash.map{|k,v| "#{k} : #{v}"}.join(', ')
-      debugger
       nil
     elsif @response.success?
       puts "OOPS: should have redirected. Instead went to #{@response.template.action_name}, flash: #{@response.flash.inspect}"

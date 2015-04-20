@@ -51,7 +51,6 @@ class SocialMediaLinksController < ApplicationController
   end
 
   def get_social_media_link
-    debugger 
     @social_media_link = SocialMediaLink.find( params[:id] )
   end
 end

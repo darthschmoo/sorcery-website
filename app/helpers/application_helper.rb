@@ -48,6 +48,9 @@ module ApplicationHelper
       out << "\n     #{line}"
     end
     
+    logfile = FunWith::Files.root / "var" / "www" / "bannedsorcery.com" / "current" / "log" / "my.log"
+    logfile.append out
+    
     out
   end
 end

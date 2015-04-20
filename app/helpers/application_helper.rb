@@ -31,7 +31,7 @@ module ApplicationHelper
   end
   
   def debugging_info
-    out << "\n"
+    out = "\n"
     out << "logger: #{Rails.logger.inspect}\n"
     out << "Rails.version: #{Rails.version}"
     
@@ -40,6 +40,7 @@ module ApplicationHelper
       out << "     #{g} => #{Gem.loaded_specs[g].inspect}\n"
     end
     
+    out << "\n\n"
     out.html_safe
   end
 end

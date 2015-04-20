@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem "fun_with_files"
+
 gem 'rails', '= 3.2.13'
 gem 'webrick', '~> 1.3.1'
  

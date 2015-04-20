@@ -79,7 +79,7 @@ gem 'bluecloth'
 gem 'liquid'
 gem 'haml'
 # gem 'eeepub'
-gem 'epubforge', "~>0.0", ">= 0.0.11"
+# gem 'epubforge', "~> 0.0", ">= 0.0.11"
 gem 'pacecar'
 
 # required for publicity tweets

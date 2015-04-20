@@ -41,6 +41,7 @@ class BooksController < ApplicationController
   end
   
   def send_signed_copy
+    raise "FIX"
     def handle_errors( &block )
       yield
     rescue Exception => e

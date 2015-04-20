@@ -106,7 +106,7 @@ FunWith::Configurations::Config.new do
     epubforge_projects_dir do
       development "~/rails/sorcery/epubforge_projects"
       test        "~/rails/sorcery/test/epubforge_projects/"
-      production  "/var/www/sorcery/shared/epubforge/projects"
+      production  "/var/www/bannedsorcery.com/shared/epubforge/projects"
     end
   end
 end

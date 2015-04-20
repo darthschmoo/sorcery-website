@@ -29,6 +29,19 @@ module ApplicationHelper
   def html_id( record )
     "#{record.class.name.tableize.singularize}_#{ record.id }"
   end
+  
+  def debugging_info
+    out << "\n"
+    out << "logger: #{Rails.logger.inspect}\n"
+    out << "Rails.version: #{Rails.version}"
+    
+    out << "Gems -----"
+    for g in Gem.loaded_specs.keys.sort
+      out << "     #{g} => #{Gem.loaded_specs[g].inspect}\n"
+    end
+    
+    out.html_safe
+  end
 end
 
-ApplicationHelper.extend(ApplicationHelper)
+ApplicationHelper.extend ApplicationHelper

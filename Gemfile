@@ -37,8 +37,10 @@ group :test do
 
   # To use debugger
   gem 'debugger'
+end
 
-
+group :beta do
+  gem 'debugger'
 end
 
 group :production do

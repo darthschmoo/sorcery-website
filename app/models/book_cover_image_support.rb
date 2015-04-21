@@ -25,3 +25,4 @@ module BookCoverImageSupport
     end
   end  
 end
+

@@ -8,6 +8,7 @@ config/app.*
 config/database.yml
 config/deploy.example.rb
 config/deploy.rb
+config/deploy/
 config/initializers/secret_token.rb
 lib/generators
 public/assets/*

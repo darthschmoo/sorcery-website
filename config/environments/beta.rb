@@ -20,6 +20,7 @@ Sorcery::Application.configure do
   config.assets.precompile += %w(development.css 
                                  logged_in.css 
                                  production.css 
+                                 beta.css
                                  author_sessions.js 
                                  authors.js
                                  book_reviews.js 

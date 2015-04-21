@@ -2,6 +2,8 @@
 require File.expand_path('../application', __FILE__)
 
 unless Rails.env.production?  # avoids having to set debugger flag manually.
+  puts Rails.env
+  sleep( 60 )
   require 'debugger'
   Debugger.start 
 end
